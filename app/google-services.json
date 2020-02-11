@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "623121124938",
+    "firebase_url": "https://rrrrrr-71646.firebaseio.com",
+    "project_id": "rrrrrr-71646",
+    "storage_bucket": "rrrrrr-71646.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623121124938:android:eb201430e771e9bef660b3",
+        "android_client_info": {
+          "package_name": "app.kek.kek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623121124938-0lmkcmv10296pdm9man9vjoo7ocbo0b2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.kek.kek",
+            "certificate_hash": "9a3df1a74b48c4ee8e31bddbb54686213c5f241d"
+          }
+        },
+        {
+          "client_id": "623121124938-9aisg8po6tfbggr22somvoe1reegh9gc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGqmiVuNwdMPnJzKW8j6LfD2HN7OcF0XI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623121124938-9aisg8po6tfbggr22somvoe1reegh9gc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-3050564412171997~3819999709"
+    }
+  ],
+  "configuration_version": "1"
+}

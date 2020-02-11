@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/btn_white"
+    >
+
+    <Button
+        android:id="@+id/mainbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_optimize"
+        android:paddingBottom="15dp"
+        android:paddingEnd="40dp"
+        android:paddingStart="40dp"
+        android:paddingTop="15dp"
+        android:src="@drawable/clean"
+        android:text="@string/clean"
+        android:textAllCaps="true"
+        android:textColor="@color/btn_white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/maintext"
+        app:layout_constraintStart_toStartOf="@+id/maintext"
+        app:layout_constraintTop_toBottomOf="@+id/maintext"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/abnb_alert_ripple"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.51"
+        />
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/shape_white_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <ImageView
+        android:id="@+id/mainbrush"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_chip"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        />
+    <TextView
+        android:id="@+id/cache"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:drawableTop="@drawable/ic_micro_sd"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:text="cache"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/temp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainbutton"
+        />
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:drawableTop="@drawable/ic_medium_cleaner"
+        android:drawablePadding="4dp"
+        android:text="temp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/residue"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cache"
+        app:layout_constraintTop_toTopOf="@+id/cache"
+        />
+    <TextView
+        android:id="@+id/residue"
+        android:drawableTop="@drawable/ic_wireframe"
+        android:drawablePadding="4dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="residue"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/temp"
+        app:layout_constraintTop_toTopOf="@+id/temp"
+        />
+    <TextView
+        android:id="@+id/system"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="system"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="78dp"
+        />
+    <TextView
+        android:id="@+id/maintext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:gravity="center"
+        android:text="@string/crystal_clear"
+        android:textColor="#24D149"
+        android:textSize="@dimen/_25sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/mainbrush"
+        app:layout_constraintStart_toStartOf="@+id/mainbrush"
+        app:layout_constraintTop_toBottomOf="@+id/mainbrush"
+        />
+    <TextView
+        android:id="@+id/cachetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0 MB"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/cache"
+        app:layout_constraintStart_toStartOf="@+id/cache"
+        app:layout_constraintTop_toTopOf="@+id/temptext"
+        />
+
+    <TextView
+        android:id="@+id/temptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="0 MB"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/temp"
+        app:layout_constraintStart_toStartOf="@+id/temp"
+        app:layout_constraintTop_toBottomOf="@+id/temp"
+        />
+    <TextView
+        android:id="@+id/residuetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0 MB"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/residue"
+        app:layout_constraintStart_toStartOf="@+id/residue"
+        app:layout_constraintTop_toTopOf="@+id/temptext"
+        />
+
+    <TextView
+        android:id="@+id/systemtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="0 MB"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/system"
+        app:layout_constraintStart_toStartOf="@+id/system"
+        app:layout_constraintTop_toBottomOf="@+id/system"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

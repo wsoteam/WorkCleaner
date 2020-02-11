@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationY="-50dp"
+        android:layout_gravity="center"
+        android:id="@+id/abnb_no_ad"/>
+
+
+    <Button
+        android:id="@+id/buy_consume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="@string/remove_ads"
+        android:layout_marginBottom="48dp"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="40dp"
+        android:paddingStart="40dp"
+        android:textStyle="bold"
+        android:background="@drawable/btn_buy"/>
+
+
+</FrameLayout>
