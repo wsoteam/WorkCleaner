@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="match_parent" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Профессиональная очистка с"
+      android:layout_gravity="center"
+      android:layout_marginTop="27dp"
+      android:textColor="@color/trans_black"
+      android:textSize="20sp"
+      android:fontFamily="@font/roboto"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="34sp"
+      android:textColor="@color/trans_black"
+      android:text="Phone cleaner"
+      android:layout_gravity="center"
+      android:fontFamily="@font/roboto_medium"
+      />
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_clean_1"
+      android:layout_gravity="center"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Без рекламы"
+      android:textColor="@color/trans_black"
+      android:textSize="18sp"
+      android:fontFamily="@font/roboto_medium"
+      android:layout_gravity="center"
+    />
+
+  <TextView
+      android:layout_width="281dp"
+      android:layout_height="wrap_content"
+      android:textSize="14sp"
+      android:fontFamily="@font/roboto"
+      android:textColor="@color/trans_black"
+      android:text="Очистка телефона без прерываний на рекламу"
+      android:layout_marginTop="4dp"
+      android:gravity="center_horizontal"
+      android:layout_gravity="center_horizontal"
+    />
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_clean_2"
+      android:layout_gravity="center"
+      android:layout_marginTop="8dp"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Очистка кэша приложений"
+      android:textColor="@color/trans_black"
+      android:textSize="18sp"
+      android:fontFamily="@font/roboto_medium"
+      android:layout_gravity="center"
+      />
+
+  <TextView
+      android:layout_width="281dp"
+      android:layout_height="wrap_content"
+      android:textSize="14sp"
+      android:fontFamily="@font/roboto"
+      android:textColor="@color/trans_black"
+      android:text="Анализирует все приложения в телефоне и удаляет кэш ненужных  приложений, если это не помешает работе телефона"
+      android:layout_marginTop="4dp"
+      android:gravity="center_horizontal"
+      android:layout_gravity="center_horizontal"
+      />
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_clean_3"
+      android:layout_gravity="center"
+      android:layout_marginTop="8dp"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Ускорение работы телефона"
+      android:textColor="@color/trans_black"
+      android:textSize="18sp"
+      android:fontFamily="@font/roboto_medium"
+      android:layout_gravity="center"
+      />
+
+  <TextView
+      android:layout_width="281dp"
+      android:layout_height="wrap_content"
+      android:textSize="14sp"
+      android:fontFamily="@font/roboto"
+      android:textColor="@color/trans_black"
+      android:text="Закрытие приложений,которые работают в фоновом режиме,для освобождения  оперативной памяти и ускорения работы телефона"
+      android:layout_marginTop="4dp"
+      android:gravity="center_horizontal"
+      android:layout_gravity="center_horizontal"
+      />
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_clean_4"
+      android:layout_gravity="center"
+      android:layout_marginTop="8dp"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Охлаждение CPU"
+      android:textColor="@color/trans_black"
+      android:textSize="18sp"
+      android:fontFamily="@font/roboto_medium"
+      android:layout_gravity="center"
+      />
+
+  <TextView
+      android:layout_width="281dp"
+      android:layout_height="wrap_content"
+      android:textSize="14sp"
+      android:fontFamily="@font/roboto"
+      android:textColor="@color/trans_black"
+      android:text="Позволяет одним нажатием эффективно охладить температуру CPU вашего телефона"
+      android:layout_marginTop="4dp"
+      android:gravity="center_horizontal"
+      android:layout_gravity="center_horizontal"
+      />
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_clean_5"
+      android:layout_gravity="center"
+      android:layout_marginTop="8dp"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Экономия заряда аккумулятора"
+      android:textColor="@color/trans_black"
+      android:textSize="18sp"
+      android:fontFamily="@font/roboto_medium"
+      android:layout_gravity="center"
+      />
+
+  <TextView
+      android:layout_width="281dp"
+      android:layout_height="wrap_content"
+      android:textSize="14sp"
+      android:fontFamily="@font/roboto"
+      android:textColor="@color/trans_black"
+      android:text="Позволяет одним нажатием закрыть приложения. При низком заряде аккумулятора, эта функция напомнит вам закрыть"
+      android:layout_marginTop="4dp"
+      android:gravity="center_horizontal"
+      android:layout_gravity="center_horizontal"
+      />
+
+  <Button
+      android:id="@+id/btnPay"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@drawable/btn_optimize"
+      android:text="ПОЛУЧИТЬ VIP ВЕРСИЮ"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="56dp"
+      android:textColor="@color/btn_white"
+      android:textSize="15sp"
+      android:fontFamily="@font/roboto_bold"
+      android:paddingStart="25dp"
+      android:paddingEnd="25dp"
+      android:paddingBottom="15dp"
+      android:paddingTop="15dp"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="14sp"
+      android:layout_gravity="center_horizontal"
+      android:textColor="@color/trans_black"
+      android:text="Продолжить бесплатно с рекламой"
+      android:fontFamily="@font/roboto_medium"
+      android:layout_marginTop="16dp"
+      android:layout_weight="28"
+      android:id="@+id/tvNext"
+      android:layout_marginBottom="56dp"/>
+
+</LinearLayout>
+</ScrollView>
