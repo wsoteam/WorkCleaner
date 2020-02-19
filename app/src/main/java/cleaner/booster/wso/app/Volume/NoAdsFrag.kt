@@ -31,8 +31,6 @@ class NoAdsFrag : AppCompatActivity() {
     }
 
     class MyFragment : Fragment() {
-        // @BindView(R.id.item)
-        //TextView mItem;
         private var resCode = 0
         private val canClick = MutableLiveData<Boolean>()
 
@@ -59,8 +57,6 @@ class NoAdsFrag : AppCompatActivity() {
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             super.onActivityResult(requestCode, resultCode, data)
             resCode = resultCode
-            Log.i("onActivityResult", "Request CODE: $requestCode")
-            Log.i("onActivityResult", "Result Code: $resultCode")
         }
 
 

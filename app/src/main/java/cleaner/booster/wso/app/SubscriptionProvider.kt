@@ -32,6 +32,10 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
     }
 
     override fun onPurchasesUpdated(billingResult: BillingResult?, purchases: MutableList<Purchase>?) {
+        if (billingResult!!.responseCode == BillingClient.BillingResponseCode.OK){
+            Log.e("LOL", "asd")
+
+        }
 
     }
 

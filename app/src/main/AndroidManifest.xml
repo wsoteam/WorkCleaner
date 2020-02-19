@@ -102,6 +102,8 @@
             android:name="cleaner.booster.wso.app.lang.SettingsActivity"
             android:configChanges="locale" />
         <activity android:name="cleaner.booster.wso.app.lang.BetweenActivity" />
+      <activity
+          android:name=".inapp.DiamondAct" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
