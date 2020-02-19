@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1000">
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/img_graph_rocket"
+      android:layout_marginTop="28dp"
+      android:layout_gravity="center_horizontal"
+      android:layout_weight="284dp"
+      />
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="В среднем сканирование телефона с помощью Phone Cleaner ускоряет работу телефона на 53%"
+      android:textColor="@color/trans_black"
+      android:fontFamily="@font/roboto"
+      android:gravity="center"
+      android:layout_marginTop="16dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_weight="94dp"
+      />
+
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/img_graph"
+      android:layout_gravity="center_horizontal"
+      android:layout_weight="194dp"
+      android:layout_marginTop="20dp"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/roboto"
+      android:textColor="@color/trans_black"
+      android:text="Экономия заряда батареи на 47%!"
+      android:layout_marginTop="15dp"
+      android:layout_weight="31dp"
+      android:layout_gravity="center_horizontal"/>
+
+  <Button
+      android:id="@+id/btnPay"
+      android:layout_width="134dp"
+      android:layout_height="wrap_content"
+      android:background="@drawable/btn_optimize"
+      android:text="Далее"
+      android:textAllCaps="true"
+      android:layout_gravity="center_horizontal|bottom"
+      android:layout_marginTop="44dp"
+      android:layout_marginBottom="14dp"
+      android:textColor="@color/btn_white"
+      android:textSize="14sp"
+      android:fontFamily="@font/roboto_bold"
+      android:paddingStart="25dp"
+      android:paddingEnd="25dp"
+      android:paddingBottom="15dp"
+      android:paddingTop="15dp"
+      />
+
+
+
+</LinearLayout>
