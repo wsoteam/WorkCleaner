@@ -196,7 +196,7 @@
     <string name="ab_bg_text">On average, a phone scan with Phone Cleaner speeds up your phone by 53%</string>
     <string name="ab_bg_title">It also saves battery power by 47%</string>
     <string name="ab_please_wait">Please, wait</string>
-    <string name="ab_optimization">Your device is being optimized</string>
+    <string name="ab_optimization">Your device is being optimized.</string>
     <string name="ab_sg_text">On average, Phone Cleaner scan speeds up the phone by 53%</string>
     <string name="ab_sg_title">It also reduces the chance of a high-tech spy virus infection by 97%</string>
 

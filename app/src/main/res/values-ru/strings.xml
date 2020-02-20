@@ -113,7 +113,7 @@
     <string name="ab_bg_text">В среднем сканирование телефона с помощью Phone Cleaner ускоряет работу телефона на 53%</string>
     <string name="ab_bg_title">Экономия заряда батареи на 47%!</string>
     <string name="ab_please_wait">Подождите немного</string>
-    <string name="ab_optimization">Идет оптимизация вашего устройства</string>
+    <string name="ab_optimization">Идет оптимизация вашего устройства.</string>
     <string name="ab_sg_text">В среднем сканирование телефона с помощью Phone Cleaner ускоряет работу телефона на 53%</string>
     <string name="ab_sg_title">А так же сокращает вероятность заражения высокотехнологичным вирусом-шпионом на 97%</string>
 </resources>
