@@ -2,14 +2,18 @@ package cleaner.booster.wso.app
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.google.firebase.analytics.FirebaseAnalytics
-import ru.mail.aslanisl.mobpirate.MobPirate
 import cleaner.booster.wso.app.Constants.adsShow
+import cleaner.booster.wso.app.R.xml
+import cleaner.booster.wso.app.common.ABConfig
+import com.google.android.gms.tasks.Task
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import ru.mail.aslanisl.mobpirate.MobPirate
 import java.util.concurrent.TimeUnit
 
 class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
@@ -28,6 +32,7 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        activateABTest()
         setContentView(R.layout.flash_screen)
         signInAndInitUser(intent)
         privacyPoliceClicked = false
@@ -53,6 +58,33 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
             TimeUnit.SECONDS.sleep(2)
             canGoNext.postValue(true)
         }.start()
+    }
+
+    private fun activateABTest() {
+        val firebaseRemoteConfig: FirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+        firebaseRemoteConfig.setDefaults(xml.default_config)
+
+        firebaseRemoteConfig.fetch(3600)
+            .addOnCompleteListener { task: Task<Void?> ->
+                if (task.isSuccessful) {
+                    firebaseRemoteConfig.activateFetched()
+                    /*Amplitude.getInstance()
+                        .logEvent("norm_ab")*/
+                } else {
+                    /*Amplitude.getInstance()
+                        .logEvent("crash_ab")*/
+                }
+                setABTestConfig(firebaseRemoteConfig.getString(ABConfig.REQUEST_STRING))
+            }
+    }
+
+    private fun setABTestConfig(responseString: String?) {
+        /*val abStatus: Identify = Identify().set(ABConfig.AB_VERSION, responseString)
+        Amplitude.getInstance()
+            .identify(abStatus)*/
+        getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, MODE_PRIVATE).edit()
+            .putString(ABConfig.KEY_FOR_SAVE_STATE, responseString)
+            .apply()
     }
 
     private fun startMainActivityWithDefaultConsent() {
