@@ -174,4 +174,30 @@
     <string name="internal_storage" translatable="false">internal storage</string>
     <string name="system_junked_hard">Hard</string>
     <string name="system_junked_lite">Clear</string>
+
+    <!--AB Testing-->
+    <string name="ab_prof_clean">Professional cleaning with</string>
+    <string name="ab_cleaner">Phone cleaner</string>
+    <string name="ab_ads">Ads free</string>
+    <string name="ab_no_stop">Cleaning the phone without interruptions by ads</string>
+    <string name="ab_cache">Cleaning the application cache</string>
+    <string name="ab_analyze">Phone Cleaner analyzes all the applications on your phone and deletes the cache of unnecessary applications, unless it interferes with your phone's operation</string>
+    <string name="ab_boost">Speeding up the phone</string>
+    <string name="ab_background">It closes applications that run in the background to free up RAM and speed up phone operation</string>
+    <string name="ab_cool_cpu">Cooling the CPU</string>
+    <string name="ab_cool_cpu_text">It allows you to effectively cool the CPU temperature of your phone with a single press of a button</string>
+    <string name="ab_battery">Saving battery power</string>
+    <string name="ab_battery_text"> It allows you to close applications with a single tap. When your battery power is low, this feature reminds you to close applications that use up a lot of battery power</string>
+    <string name="ab_next">Next</string>
+    <string name="ab_free_with_ads">Continue using it for free with ads</string>
+    <string name="ab_vip_version">VIP version</string>
+    <string name="ab_unlock">Unlock all content and remove ads in one click!</string>
+    <string name="ab_get_vip">Get the VIP version</string>
+    <string name="ab_bg_text">On average, a phone scan with Phone Cleaner speeds up your phone by 53%</string>
+    <string name="ab_bg_title">It also saves battery power by 47%</string>
+    <string name="ab_please_wait">Please, wait</string>
+    <string name="ab_optimization">Your device is being optimized..</string>
+    <string name="ab_sg_text">On average, Phone Cleaner scan speeds up the phone by 53%</string>
+    <string name="ab_sg_title">It also reduces the chance of a high-tech spy virus infection by 97%</string>
+
 </resources>

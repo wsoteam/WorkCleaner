@@ -6,7 +6,7 @@
   <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Подождите немного"
+      android:text="@string/ab_please_wait"
       android:textColor="@color/trans_black"
       android:textSize="20sp"
       android:fontFamily="@font/roboto_medium"
@@ -20,7 +20,7 @@
       android:id="@+id/tvAnimText"
       android:textSize="20sp"
       android:textColor="@color/trans_black"
-      android:text="Идет оптимизация вашего устройства..."
+      android:text="@string/ab_optimization"
       android:layout_marginTop="11dp"
       android:layout_marginStart="30dp"
       android:layout_marginEnd="30dp"

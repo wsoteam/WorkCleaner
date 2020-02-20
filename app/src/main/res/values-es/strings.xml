@@ -85,4 +85,30 @@
     <string name="notif_body">Aumentar el rendimiento del dispositivo</string>
     <string name="cache">caché</string>
     <string name="internal_storage">almacenamiento interno</string>
+
+
+    <!--AB Testing-->
+    <string name="ab_prof_clean">Limpieza profesional con</string>
+    <string name="ab_cleaner">Phone cleaner</string>
+    <string name="ab_ads">Sin publicidad</string>
+    <string name="ab_no_stop">Limpieza de teléfono sin interrupciones para anuncios</string>
+    <string name="ab_cache">Limpieza de caché de aplicaciónes</string>
+    <string name="ab_analyze">Analiza todas las aplicaciones del teléfono e elimina el caché de las aplicaciones innecesarias,si esto no perjudica el buen funcionamiento del teléfono</string>
+    <string name="ab_boost">Acelerando el teléfono</string>
+    <string name="ab_background"> Cierre de aplicaciones ejecutadas de fondo,para liberar memoria RAM e acelerar el funcionamiento del teléfono</string>
+    <string name="ab_cool_cpu">Enfriamiento de CPU</string>
+    <string name="ab_cool_cpu_text">Permite enfriar CPU de su teléfono de manera eficaz con un clic</string>
+    <string name="ab_battery">Ahorro de la carga de la batería</string>
+    <string name="ab_battery_text">Permite cerrar aplicaciones con un gesto. Con un nivel bajo de la carga de la batería ,esta función le recordará cerrar aplicaciones que consumen mucha energía</string>
+    <string name="ab_next">En adelante</string>
+    <string name="ab_free_with_ads">Seguir gratis con publicidad</string>
+    <string name="ab_vip_version">Versión VIP.</string>
+    <string name="ab_unlock">Desbloquea todo el contenido e elimina la publicidad en un clic!</string>
+    <string name="ab_get_vip">Recibir versión VIP</string>
+    <string name="ab_bg_text">El escaneo de un teléfono con Phone Cleancer acelera su funcionamiento en un 53%</string>
+    <string name="ab_bg_title">Ahorro de la carga de la batería un 47%</string>
+    <string name="ab_please_wait">Espere</string>
+    <string name="ab_optimization">Su dispositivo se está optimizando...</string>
+    <string name="ab_sg_text">El escaneo de un teléfono con Phone Cleancer acelera su funcionamiento en un 53%</string>
+    <string name="ab_sg_title">Ademas reduce las probabilidades de contagio por un virus espía de alta tecnología en un 97%</string>
 </resources>
