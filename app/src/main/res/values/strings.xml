@@ -181,7 +181,7 @@
     <string name="ab_ads">Ads free</string>
     <string name="ab_no_stop">Cleaning the phone without interruptions by ads</string>
     <string name="ab_cache">Cleaning the application cache</string>
-    <string name="ab_analyze">Phone Cleaner analyzes all the applications on your phone and deletes the cache of unnecessary applications, unless it interferes with your phone's operation</string>
+    <string name="ab_analyze">Phone Cleaner analyzes all the applications on your phone and deletes the cache of unnecessary applications, unless it interferes with your phone\'s operation</string>
     <string name="ab_boost">Speeding up the phone</string>
     <string name="ab_background">It closes applications that run in the background to free up RAM and speed up phone operation</string>
     <string name="ab_cool_cpu">Cooling the CPU</string>
@@ -196,7 +196,7 @@
     <string name="ab_bg_text">On average, a phone scan with Phone Cleaner speeds up your phone by 53%</string>
     <string name="ab_bg_title">It also saves battery power by 47%</string>
     <string name="ab_please_wait">Please, wait</string>
-    <string name="ab_optimization">Your device is being optimized..</string>
+    <string name="ab_optimization">Your device is being optimized</string>
     <string name="ab_sg_text">On average, Phone Cleaner scan speeds up the phone by 53%</string>
     <string name="ab_sg_title">It also reduces the chance of a high-tech spy virus infection by 97%</string>
 

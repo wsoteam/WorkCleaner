@@ -30,6 +30,7 @@ import java.util.Calendar
 
 import cleaner.booster.wso.app.Constants.adsShow
 import cleaner.booster.wso.app.inapp.DiamondAct
+import cleaner.booster.wso.app.inapp.RocketAct
 import cleaner.booster.wso.app.utils.PreferencesProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener
 import kotlinx.android.synthetic.main.activity_main.*
@@ -158,7 +159,7 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
       pager.currentItem = 3
     }
     pager.currentItem = intent.getIntExtra("frag", 0)
-    startActivity(Intent(this, DiamondAct::class.java))
+    startActivity(Intent(this, RocketAct::class.java))
 
   }
 

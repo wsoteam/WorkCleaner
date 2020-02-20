@@ -108,7 +108,7 @@
     <string name="ab_bg_text">El escaneo de un teléfono con Phone Cleancer acelera su funcionamiento en un 53%</string>
     <string name="ab_bg_title">Ahorro de la carga de la batería un 47%</string>
     <string name="ab_please_wait">Espere</string>
-    <string name="ab_optimization">Su dispositivo se está optimizando...</string>
+    <string name="ab_optimization">Su dispositivo se está optimizando</string>
     <string name="ab_sg_text">El escaneo de un teléfono con Phone Cleancer acelera su funcionamiento en un 53%</string>
     <string name="ab_sg_title">Ademas reduce las probabilidades de contagio por un virus espía de alta tecnología en un 97%</string>
 </resources>

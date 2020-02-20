@@ -104,6 +104,14 @@
         <activity android:name="cleaner.booster.wso.app.lang.BetweenActivity" />
       <activity
           android:name=".inapp.DiamondAct" />
+      <activity
+          android:name=".inapp.BatteryGraphAct" />
+      <activity
+          android:name=".inapp.SecurityGraphAct" />
+      <activity
+          android:name=".inapp.LineAct" />
+      <activity
+          android:name=".inapp.RocketAct" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

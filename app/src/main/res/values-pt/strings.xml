@@ -108,7 +108,7 @@
     <string name="ab_bg_text">Em média, um escaneamento do seu telefone com o Phone Cleaner acelera-o em 53%</string>
     <string name="ab_bg_title">E economiza a energia da bateria em 47%</string>
     <string name="ab_please_wait">Espere um minuto</string>
-    <string name="ab_optimization"> O seu dispositivo está a ser optimizado...</string>
+    <string name="ab_optimization"> O seu dispositivo está a ser optimizado</string>
     <string name="ab_sg_text"> Em média, um escaneamento do Phone Cleaner acelera o telefone em 53%</string>
     <string name="ab_sg_title">Também reduz em 97% a possibilidade de uma infecção por vírus espião de alta tecnologia</string>
 </resources>
