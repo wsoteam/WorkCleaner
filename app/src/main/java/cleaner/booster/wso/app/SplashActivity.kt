@@ -12,33 +12,41 @@ import cleaner.booster.wso.app.R.xml
 import cleaner.booster.wso.app.common.analytics.Events
 import cleaner.booster.wso.app.common.analytics.UserProperties
 import cleaner.booster.wso.app.common.tests.ABConfig
+import cleaner.booster.wso.app.inapp.RocketAct
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.tasks.Task
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import ru.mail.aslanisl.mobpirate.MobPirate
 import java.util.concurrent.TimeUnit
 
-class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
-    internal var fullscreenManager: AdMobFullscreenManager? = null
+class SplashActivity : AppCompatActivity() {
     private var privatePoliceBtn: Button? = null
     internal var privacyPoliceClicked = false
     private var mFirebaseAnalytics: FirebaseAnalytics? = null
+    private lateinit var mInterstitialAd: InterstitialAd
 
+    val canGoNext = MutableLiveData<Int>()
 
-    private val adManager: AdMobFullscreenManager?
-        get() {
-            if (fullscreenManager == null) {
-                configureManager()
+    var counter: Int = 0
+
+    init {
+        canGoNext.observe(this, Observer {
+            counter += it
+            if (counter > 0){
+                goNext()
             }
-            return fullscreenManager
-        }
 
-    val canGoNext = MutableLiveData<Boolean>()
+        })
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activateABTest()
         setContentView(R.layout.flash_screen)
+        activateABTest()
         signInAndInitUser(intent)
         privacyPoliceClicked = false
         privatePoliceBtn = findViewById(R.id.privacyPoliceBtn)
@@ -49,12 +57,33 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
             privacyPoliceClicked = true
             startActivity(Intent(this@SplashActivity, PrivacyPoliceActivity::class.java))
         }
+        //loadAd()
+    }
 
-        canGoNext.observe(this, Observer {
-            if(it){
-                goNext()
+    private fun loadAd() {
+        MobileAds.initialize(this, "ca-app-pub-3050564412171997~3819999709")
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = resources.getString(R.string.interstitial)
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+        mInterstitialAd.adListener = object : AdListener(){
+
+            override fun onAdFailedToLoad(p0: Int) {
+                canGoNext.postValue(1)
+
+                super.onAdFailedToLoad(p0)
             }
-        })
+
+            override fun onAdClosed() {
+                canGoNext.postValue(1)
+
+                super.onAdClosed()
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                mInterstitialAd.show()
+            }
+        }
     }
 
     private fun activateABTest() {
@@ -79,7 +108,7 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
         getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, MODE_PRIVATE).edit()
             .putString(ABConfig.KEY_FOR_SAVE_STATE, responseString)
             .apply()
-        canGoNext.postValue(true)
+        canGoNext.postValue(1)
 
     }
 
@@ -108,50 +137,20 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-    }
+    override fun onBackPressed() {
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    private fun configureManager() {
-        if (fullscreenManager == null) {
-            fullscreenManager = AdMobFullscreenManager(this, this)
-        } else {
-            fullscreenManager!!.reloadAd()
-        }
-    }
-
-    override fun ADLoaded() {
-        if (adManager!!.tryingShowDone) {
-            adManager!!.showAdd()
-        }
-    }
-
-    override fun ADIsClosed() {
-        if (adManager!!.tryingShowDone) {
-            goNext()
-        }
     }
 
     override fun onResume() {
         privacyPoliceClicked = false
-        adManager!!.completed()
         super.onResume()
-        //getAdManager().completed();
     }
 
     internal fun goNext() {
         if (!privacyPoliceClicked) {
-            val i = Intent(applicationContext, MainActivity::class.java)
+            val i = Intent(applicationContext, RocketAct::class.java)
             startActivity(i)
             finish()
         }
-    }
-
-    companion object {
-        private val AD_FREE = "noads"
     }
 }
