@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
+
     data.observe(this, Observer {
       name.setText(it)
     })

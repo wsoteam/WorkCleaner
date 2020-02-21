@@ -24,6 +24,7 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
     internal var privacyPoliceClicked = false
     private var mFirebaseAnalytics: FirebaseAnalytics? = null
 
+
     private val adManager: AdMobFullscreenManager?
         get() {
             if (fullscreenManager == null) {
@@ -31,6 +32,8 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
             }
             return fullscreenManager
         }
+
+    val canGoNext = MutableLiveData<Boolean>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,26 +50,16 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
             startActivity(Intent(this@SplashActivity, PrivacyPoliceActivity::class.java))
         }
 
-        Log.i("CheckAdsBill", "onCreate")
-
-        val canGoNext = MutableLiveData<Boolean>()
         canGoNext.observe(this, Observer {
             if(it){
                 goNext()
             }
         })
-
-        Thread{
-            TimeUnit.SECONDS.sleep(2)
-            canGoNext.postValue(true)
-        }.start()
     }
 
     private fun activateABTest() {
         val firebaseRemoteConfig: FirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
         firebaseRemoteConfig.setDefaults(R.xml.default_config)
-        Log.e("LOL", "sdf")
-
 
         firebaseRemoteConfig.fetch(3600)
             .addOnCompleteListener { task: Task<Void?> ->
@@ -86,6 +79,8 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
         getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, MODE_PRIVATE).edit()
             .putString(ABConfig.KEY_FOR_SAVE_STATE, responseString)
             .apply()
+        canGoNext.postValue(true)
+
     }
 
     private fun signInAndInitUser(intent: Intent) {
@@ -131,7 +126,7 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
 
     override fun ADLoaded() {
         if (adManager!!.tryingShowDone) {
-            //adManager!!.showAdd()
+            adManager!!.showAdd()
         }
     }
 

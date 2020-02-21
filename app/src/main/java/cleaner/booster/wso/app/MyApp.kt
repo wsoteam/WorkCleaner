@@ -29,14 +29,11 @@ class MyApp : ModuleApplication() {
         setAutoLogAppEventsEnabled(true)
         AppEventsLogger.activateApp(this)
         MobPirate.getInstance().init(this, getString(R.string.facebook_app_id))
-        val mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        val mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
         MobileAds.initialize(this, "ca-app-pub-3050564412171997~3819999709") //ca-app-pub-9387354664905418~6073119457
-        // Создание расширенной конфигурации библиотеки.
         val config = YandexMetricaConfig.newConfigBuilder("e21fc696-1f3b-47e8-990a-9d482c4df2f1").build()
-        // Инициализация AppMetrica SDK.
         YandexMetrica.activate(applicationContext, config)
-        // Отслеживание активности пользователей.
         YandexMetrica.enableActivityAutoTracking(this)
         Amplitude.getInstance()
             .trackSessionEvents(true)

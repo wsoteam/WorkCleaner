@@ -124,7 +124,6 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
     }
 
     companion object {
-
         private val MAX_REQUEST_AD = 3
     }
 
