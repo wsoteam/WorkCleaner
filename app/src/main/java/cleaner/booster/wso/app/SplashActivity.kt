@@ -82,6 +82,7 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
         /*val abStatus: Identify = Identify().set(ABConfig.AB_VERSION, responseString)
         Amplitude.getInstance()
             .identify(abStatus)*/
+        Log.e("LOL", responseString)
         getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, MODE_PRIVATE).edit()
             .putString(ABConfig.KEY_FOR_SAVE_STATE, responseString)
             .apply()

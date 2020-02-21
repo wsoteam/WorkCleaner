@@ -2,17 +2,15 @@ package cleaner.booster.wso.app
 
 import android.app.Activity
 import android.content.Context
-
+import com.amplitude.api.Amplitude
 import com.facebook.FacebookSdk
-
+import com.facebook.FacebookSdk.setAutoLogAppEventsEnabled
 import com.facebook.appevents.AppEventsLogger
 import com.google.android.gms.ads.MobileAds
-import com.yandex.metrica.YandexMetrica
-import com.yandex.metrica.YandexMetricaConfig
-
-import com.facebook.FacebookSdk.setAutoLogAppEventsEnabled
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.rt.ModuleApplication
+import com.yandex.metrica.YandexMetrica
+import com.yandex.metrica.YandexMetricaConfig
 import ru.mail.aslanisl.mobpirate.MobPirate
 
 class MyApp : ModuleApplication() {
@@ -38,6 +36,11 @@ class MyApp : ModuleApplication() {
         YandexMetrica.activate(applicationContext, config)
         // Отслеживание активности пользователей.
         YandexMetrica.enableActivityAutoTracking(this)
+        Amplitude.getInstance()
+            .trackSessionEvents(true)
+        Amplitude.getInstance()
+            .initialize(this, "fbf1ac4b1567a2ae7c49981929f42eae")
+            .enableForegroundTracking(this)
     }
 
     companion object {
