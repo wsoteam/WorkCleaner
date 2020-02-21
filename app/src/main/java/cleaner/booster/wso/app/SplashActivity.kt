@@ -64,7 +64,9 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
 
     private fun activateABTest() {
         val firebaseRemoteConfig: FirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-        firebaseRemoteConfig.setDefaults(xml.default_config)
+        firebaseRemoteConfig.setDefaults(R.xml.default_config)
+        Log.e("LOL", "sdf")
+
 
         firebaseRemoteConfig.fetch(3600)
             .addOnCompleteListener { task: Task<Void?> ->

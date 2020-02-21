@@ -7,6 +7,7 @@ import com.facebook.FacebookSdk
 import com.facebook.FacebookSdk.setAutoLogAppEventsEnabled
 import com.facebook.appevents.AppEventsLogger
 import com.google.android.gms.ads.MobileAds
+import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.rt.ModuleApplication
 import com.yandex.metrica.YandexMetrica
@@ -21,6 +22,7 @@ class MyApp : ModuleApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        FirebaseApp.initializeApp(this)
         sInstance = this
         SubscriptionProvider.init(this)
         FacebookSdk.sdkInitialize(applicationContext)

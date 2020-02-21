@@ -1,5 +1,6 @@
 package cleaner.booster.wso.app.common.analytics
 
+import android.util.Log
 import com.amplitude.api.Amplitude
 import org.json.JSONException
 import org.json.JSONObject
@@ -23,6 +24,7 @@ class Events {
     const val normaly_ab = "normaly_ab"
 
     fun logError() {
+      Log.e("LOL", "error")
       Amplitude.getInstance()
           .logEvent(crash_ab)
     }
