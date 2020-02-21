@@ -15,19 +15,9 @@ class RocketAct : AppCompatActivity(R.layout.rocket_act) {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    var avdRocket = AnimatedVectorDrawableCompat.create(this, R.drawable.rocket_anim)
-
-    animText()
-    avdRocket?.registerAnimationCallback(object : Animatable2Compat.AnimationCallback() {
-      override fun onAnimationEnd(drawable: Drawable?) {
-        super.onAnimationEnd(drawable)
-        openNextScreen()
-      }
-    })
-
-    ivAnimRocket.setImageDrawable(avdRocket)
-    avdRocket?.start()
   }
+
+
 
   private fun animText() {
     var counter = 1
@@ -53,6 +43,22 @@ class RocketAct : AppCompatActivity(R.layout.rocket_act) {
   }
 
   private fun openNextScreen() {
-      finish()
+
+  }
+
+  override fun onResume() {
+    super.onResume()
+    var avdRocket = AnimatedVectorDrawableCompat.create(this, R.drawable.rocket_anim)
+
+    animText()
+    avdRocket?.registerAnimationCallback(object : Animatable2Compat.AnimationCallback() {
+      override fun onAnimationEnd(drawable: Drawable?) {
+        super.onAnimationEnd(drawable)
+        openNextScreen()
+      }
+    })
+
+    ivAnimRocket.setImageDrawable(avdRocket)
+    avdRocket?.start()
   }
 }
