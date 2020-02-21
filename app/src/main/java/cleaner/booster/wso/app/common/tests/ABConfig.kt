@@ -1,4 +1,4 @@
-package cleaner.booster.wso.app.common
+package cleaner.booster.wso.app.common.tests
 
 class ABConfig {
   companion object{

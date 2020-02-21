@@ -9,7 +9,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import cleaner.booster.wso.app.Constants.adsShow
 import cleaner.booster.wso.app.R.xml
-import cleaner.booster.wso.app.common.ABConfig
+import cleaner.booster.wso.app.common.analytics.Events
+import cleaner.booster.wso.app.common.analytics.UserProperties
+import cleaner.booster.wso.app.common.tests.ABConfig
 import com.google.android.gms.tasks.Task
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
@@ -68,28 +70,20 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
             .addOnCompleteListener { task: Task<Void?> ->
                 if (task.isSuccessful) {
                     firebaseRemoteConfig.activateFetched()
-                    /*Amplitude.getInstance()
-                        .logEvent("norm_ab")*/
+                    Events.logSuccess()
                 } else {
-                    /*Amplitude.getInstance()
-                        .logEvent("crash_ab")*/
+                    Events.logError()
                 }
-                setABTestConfig(firebaseRemoteConfig.getString(ABConfig.REQUEST_STRING))
+                setABTestConfig(firebaseRemoteConfig.getString(
+                    ABConfig.REQUEST_STRING))
             }
     }
 
-    private fun setABTestConfig(responseString: String?) {
-        /*val abStatus: Identify = Identify().set(ABConfig.AB_VERSION, responseString)
-        Amplitude.getInstance()
-            .identify(abStatus)*/
-        Log.e("LOL", responseString)
+    private fun setABTestConfig(responseString: String) {
+        UserProperties.setABUserProp(responseString)
         getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, MODE_PRIVATE).edit()
             .putString(ABConfig.KEY_FOR_SAVE_STATE, responseString)
             .apply()
-    }
-
-    private fun startMainActivityWithDefaultConsent() {
-        startActivity(MainActivity.getIntent(this, true))
     }
 
     private fun signInAndInitUser(intent: Intent) {
@@ -150,34 +144,6 @@ class SplashActivity : AppCompatActivity(), AdMobFullscreenManager.AdMobFullscre
         adManager!!.completed()
         super.onResume()
         //getAdManager().completed();
-    }
-
-    fun srtatApp() {
-        Log.i("CheckAdsBill", adsShow.toString())
-
-        //PopUpAds.ShowInterstitialAds(getApplicationContext());
-        // ConsentInformation consentInformation = ConsentInformation.getInstance(this);
-
-        /*String[] publisherIds = {"pub-0123456789012345"};
-        consentInformation.requestConsentInfoUpdate(publisherIds, new ConsentInfoUpdateListener() {
-            @Override
-            public void onConsentInfoUpdated(ConsentStatus consentStatus) {
-                if (ConsentInformation.getInstance(SplashActivity.this).isRequestLocationInEeaOrUnknown()) {
-                    //startActivity(new Intent(SplashActivity.this, GDPRActivity.class));
-                } else {
-                    startActivity(new Intent(SplashActivity.this, GDPRActivity.class));
-                }
-            }
-
-            @Override
-            public void onFailedToUpdateConsentInfo(String errorDescription) {
-                startActivity(new Intent(SplashActivity.this, GDPRActivity.class));
-            }
-        });
-        */
-
-
-        goNext()
     }
 
     internal fun goNext() {
