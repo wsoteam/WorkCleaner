@@ -166,13 +166,15 @@ class SplashActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
+        }else{
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
     private fun isFirstLaunch(): Boolean {
         if (getSharedPreferences(Config.FIRST_LAUNCH, Context.MODE_PRIVATE).getBoolean(Config.FIRST_LAUNCH, true)) {
             getSharedPreferences(Config.FIRST_LAUNCH, Context.MODE_PRIVATE).edit()
-                    .putBoolean(Config.FIRST_LAUNCH, false)
+                    .putBoolean(Config.FIRST_LAUNCH, false).commit()
             return true
         } else {
             return false

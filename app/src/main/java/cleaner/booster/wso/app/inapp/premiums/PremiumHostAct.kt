@@ -16,6 +16,7 @@ class PremiumHostAct : AppCompatActivity(R.layout.premium_host_activity) {
     when(abVersion){
       ABConfig.DEFAULT, ABConfig.A, ABConfig.D, ABConfig.F -> startDiamondPrem()
       ABConfig.B, ABConfig.C, ABConfig.E, ABConfig.G -> startLinePrem()
+      else -> startLinePrem()
     }
   }
 
