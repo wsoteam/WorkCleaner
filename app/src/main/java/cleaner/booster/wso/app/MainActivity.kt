@@ -29,7 +29,6 @@ import cleaner.booster.wso.app.lang.SettingsFragment
 import java.util.Calendar
 
 import cleaner.booster.wso.app.Constants.adsShow
-import cleaner.booster.wso.app.inapp.DiamondAct
 import cleaner.booster.wso.app.inapp.RocketAct
 import cleaner.booster.wso.app.utils.PreferencesProvider
 import com.amplitude.api.Amplitude
@@ -161,8 +160,6 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
       pager.currentItem = 3
     }
     pager.currentItem = intent.getIntExtra("frag", 0)
-    startActivity(Intent(this, RocketAct::class.java))
-
   }
 
   override fun onResume() {

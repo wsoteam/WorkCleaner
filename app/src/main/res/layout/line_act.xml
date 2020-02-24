@@ -178,7 +178,7 @@
 
   <Button
       android:id="@+id/btnPay"
-      android:layout_width="wrap_content"
+      android:layout_width="134dp"
       android:layout_height="wrap_content"
       android:background="@drawable/btn_optimize"
       android:text="@string/ab_next"

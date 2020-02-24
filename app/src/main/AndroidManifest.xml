@@ -103,15 +103,17 @@
             android:configChanges="locale" />
         <activity android:name="cleaner.booster.wso.app.lang.BetweenActivity" />
       <activity
-          android:name=".inapp.DiamondAct" />
+          android:name=".inapp.premiums.DiamondFrag" />
       <activity
           android:name=".inapp.BatteryGraphAct" />
       <activity
           android:name=".inapp.SecurityGraphAct" />
       <activity
-          android:name=".inapp.LineAct" />
+          android:name=".inapp.premiums.LineFrag" />
       <activity
           android:name=".inapp.RocketAct" />
+        <activity
+            android:name=".inapp.premiums.PremiumHostAct" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

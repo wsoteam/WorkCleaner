@@ -91,5 +91,25 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
         }
     }
 
+    fun startChoiseSub(activity: Activity, id : String) {
+        val params = SkuDetailsParams.newBuilder().setSkusList(arrayListOf(id))
+                .setType(BillingClient.SkuType.SUBS).build()
+        playStoreBillingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->
+            when (billingResult.responseCode) {
+                BillingClient.BillingResponseCode.OK -> {
+                    if (skuDetailsList.orEmpty().isNotEmpty()) {
+                        skuDetailsList.forEach {
+                            val perchaseParams = BillingFlowParams.newBuilder().setSkuDetails(it)
+                                    .build()
+                            playStoreBillingClient.launchBillingFlow(activity, perchaseParams)
+                        }
+                    }
+                }
+                else -> {
+                }
+            }
+        }
+    }
+
 
 }
