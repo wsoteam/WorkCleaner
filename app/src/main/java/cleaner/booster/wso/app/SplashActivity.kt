@@ -36,7 +36,7 @@ class SplashActivity : AppCompatActivity() {
     init {
         canGoNext.observe(this, Observer {
             counter += it
-            if (counter > 0) {
+            if (counter > 1) {
                 goNext()
             }
 
@@ -58,11 +58,14 @@ class SplashActivity : AppCompatActivity() {
             privacyPoliceClicked = true
             startActivity(Intent(this@SplashActivity, PrivacyPoliceActivity::class.java))
         }
-        //loadAd()
+        if(!SubscriptionProvider.hasSubscription()) {
+            loadAd()
+        }else{
+            canGoNext.postValue(1)
+        }
     }
 
     private fun loadAd() {
-        MobileAds.initialize(this, "ca-app-pub-3050564412171997~3819999709")
         mInterstitialAd = InterstitialAd(this)
         mInterstitialAd.adUnitId = resources.getString(R.string.interstitial)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
@@ -70,13 +73,11 @@ class SplashActivity : AppCompatActivity() {
 
             override fun onAdFailedToLoad(p0: Int) {
                 canGoNext.postValue(1)
-
                 super.onAdFailedToLoad(p0)
             }
 
             override fun onAdClosed() {
                 canGoNext.postValue(1)
-
                 super.onAdClosed()
             }
 
@@ -168,6 +169,7 @@ class SplashActivity : AppCompatActivity() {
             finish()
         }else{
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 

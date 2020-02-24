@@ -36,7 +36,6 @@
 
         <activity
             android:name="cleaner.booster.wso.app.SplashActivity"
-            android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
