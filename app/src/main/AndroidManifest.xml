@@ -105,9 +105,9 @@
       <activity
           android:name=".inapp.premiums.DiamondFrag" />
       <activity
-          android:name=".inapp.BatteryGraphAct" />
+          android:name=".inapp.graphs.BatteryGraphAct" />
       <activity
-          android:name=".inapp.SecurityGraphAct" />
+          android:name=".inapp.graphs.SecurityGraphAct" />
       <activity
           android:name=".inapp.premiums.LineFrag" />
       <activity

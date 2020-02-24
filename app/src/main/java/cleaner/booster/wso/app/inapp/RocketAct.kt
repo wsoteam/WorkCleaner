@@ -3,14 +3,14 @@ package cleaner.booster.wso.app.inapp
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.vectordrawable.graphics.drawable.Animatable2Compat
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 import cleaner.booster.wso.app.R
 import cleaner.booster.wso.app.common.tests.ABConfig
+import cleaner.booster.wso.app.inapp.graphs.BatteryGraphAct
+import cleaner.booster.wso.app.inapp.graphs.SecurityGraphAct
 import cleaner.booster.wso.app.inapp.premiums.PremiumHostAct
 import kotlinx.android.synthetic.main.rocket_act.ivAnimRocket
 import kotlinx.android.synthetic.main.rocket_act.tvAnimText
@@ -78,5 +78,9 @@ class RocketAct : AppCompatActivity(R.layout.rocket_act) {
 
         ivAnimRocket.setImageDrawable(avdRocket)
         avdRocket?.start()
+    }
+
+    override fun onBackPressed() {
+
     }
 }

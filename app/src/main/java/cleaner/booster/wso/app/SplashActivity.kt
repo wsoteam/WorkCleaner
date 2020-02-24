@@ -106,7 +106,7 @@ class SplashActivity : AppCompatActivity() {
     private fun setABTestConfig(responseString: String) {
         UserProperties.setABUserProp(responseString)
         getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, MODE_PRIVATE).edit()
-                .putString(ABConfig.KEY_FOR_SAVE_STATE, ABConfig.G)
+                .putString(ABConfig.KEY_FOR_SAVE_STATE, ABConfig.A)
                 .apply()
         canGoNext.postValue(1)
     }

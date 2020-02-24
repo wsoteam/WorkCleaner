@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cleaner.booster.wso.app.Config
 import cleaner.booster.wso.app.R
+import cleaner.booster.wso.app.common.analytics.EventProperties
 import cleaner.booster.wso.app.common.tests.ABConfig
 
 class PremiumHostAct : AppCompatActivity(R.layout.premium_host_activity) {
@@ -20,12 +21,12 @@ class PremiumHostAct : AppCompatActivity(R.layout.premium_host_activity) {
 
   private fun startLinePrem() {
     var fm = supportFragmentManager.beginTransaction()
-    fm.add(R.id.flHost, LineFrag.newInstance(intent.getStringExtra(Config.PREM_FROM))).commit()
+    fm.add(R.id.flHost, LineFrag.newInstance(EventProperties.from_onboard)).commit()
   }
 
   private fun startDiamondPrem() {
     var fm = supportFragmentManager.beginTransaction()
-    fm.add(R.id.flHost, DiamondFrag.newInstance(intent.getStringExtra(Config.PREM_FROM))).commit()
+    fm.add(R.id.flHost, DiamondFrag.newInstance(EventProperties.from_onboard)).commit()
   }
 
   override fun onBackPressed() {
