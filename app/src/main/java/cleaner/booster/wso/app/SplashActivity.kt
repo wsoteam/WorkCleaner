@@ -166,6 +166,7 @@ class SplashActivity : AppCompatActivity() {
                         Intent(this, PremiumHostAct::class.java).putExtra(Config.PREM_FROM, Config.PREM_FROM_ONBOARD)
             }
             startActivity(intent)
+            finish()
         }
     }
 
