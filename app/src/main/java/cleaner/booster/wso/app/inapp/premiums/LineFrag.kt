@@ -1,5 +1,6 @@
 package cleaner.booster.wso.app.inapp.premiums
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -8,6 +9,8 @@ import androidx.fragment.app.Fragment
 import cleaner.booster.wso.app.MainActivity
 import cleaner.booster.wso.app.R
 import cleaner.booster.wso.app.SubscriptionProvider
+import cleaner.booster.wso.app.common.analytics.Events
+import cleaner.booster.wso.app.common.tests.ABConfig
 import kotlinx.android.synthetic.main.diamond_act.view.*
 
 class LineFrag : Fragment(R.layout.line_act) {
@@ -26,7 +29,8 @@ class LineFrag : Fragment(R.layout.line_act) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val abVersion = arguments?.getString(TAG_FROM)
+        val from = arguments?.getString(TAG_FROM)
+        val abVersion = activity?.getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE)?.getString(ABConfig.KEY_FOR_SAVE_STATE, "")
         view.btnPay.setOnClickListener { View.OnClickListener { _ ->
             activity?.let { it1 -> SubscriptionProvider.startChoiseSub(it1, abVersion!!) }
         } }
@@ -34,6 +38,14 @@ class LineFrag : Fragment(R.layout.line_act) {
         view.tvNext.setOnClickListener { _ ->
             startActivity(Intent(activity, MainActivity::class.java))
             activity?.finish()
+        }
+        Events.logOpenPrem(from!!)
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if (isVisibleToUser && activity is MainActivity) {
+            MainActivity.setInfo(R.string.remove_ads)
         }
     }
 }

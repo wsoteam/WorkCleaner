@@ -46,6 +46,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.flash_screen)
+        Events.logSplash()
         activateABTest()
         signInAndInitUser(intent)
         privacyPoliceClicked = false
@@ -155,9 +156,7 @@ class SplashActivity : AppCompatActivity() {
     private fun moveABTest() {
         if (isFirstLaunch()) {
             val version =
-                    getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE).getString(
-                            ABConfig.KEY_FOR_SAVE_STATE, ""
-                    )
+                    getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE).getString(ABConfig.KEY_FOR_SAVE_STATE, "")
             var intent = Intent()
             when (version) {
                 ABConfig.DEFAULT, ABConfig.A, ABConfig.B, ABConfig.C, ABConfig.D, ABConfig.E ->

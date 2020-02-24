@@ -10,6 +10,7 @@ class Events {
     const val splash_screen = "splash_screen"
     const val rocket_screen = "rocket_screen"
     const val security_screen = "security_screen"
+    const val battery_screen = "battery_screen"
 
     const val premium_screen = "premium_screen"
     const val premium_screen_from = "from"
@@ -42,6 +43,11 @@ class Events {
     fun logRocket() {
       Amplitude.getInstance()
           .logEvent(rocket_screen)
+    }
+
+    fun logBattery() {
+      Amplitude.getInstance()
+              .logEvent(battery_screen)
     }
 
     fun logSecurity() {

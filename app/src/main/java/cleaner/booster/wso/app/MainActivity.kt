@@ -29,6 +29,7 @@ import cleaner.booster.wso.app.lang.SettingsFragment
 import java.util.Calendar
 
 import cleaner.booster.wso.app.Constants.adsShow
+import cleaner.booster.wso.app.common.analytics.Events
 import cleaner.booster.wso.app.inapp.RocketAct
 import cleaner.booster.wso.app.utils.PreferencesProvider
 import com.amplitude.api.Amplitude
@@ -59,8 +60,7 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-
-
+    Events.logMainScreen()
     data.observe(this, Observer {
       name.setText(it)
     })
@@ -72,17 +72,11 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
     if (!SubscriptionProvider.hasSubscription()) {
       adView!!.loadAd(adRequest)
     }
-    //PopUpAds.ShowInterstitialAds(getApplicationContext());
     consent = intent.getBooleanExtra(CONSENT, false)
 
     val randomNum = 6 + (Math.random() * 18).toInt()
 
     val randomNum2 = 6 + (Math.random() * 18).toInt()
-
-    //   Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    //        setSupportActionBar(toolbar);
-
-    //        Toast.makeText(this,randomNum+"",Toast.LENGTH_LONG).show();
 
     val myIntent = Intent(this@MainActivity, AlarmBroadCastReceiver::class.java)
     val pendingIntent = PendingIntent.getBroadcast(this@MainActivity, 0, myIntent, 0)
@@ -154,7 +148,6 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
         return true
       }
     })
-//        PopUpAds.ShowInterstitialAds(getApplicationContext());
 
     if (intent.getBooleanExtra("fromService", false)) {
       pager.currentItem = 3
