@@ -59,6 +59,8 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
 
     fun hasSubscription() = preferences.getBoolean(HAS_SUBSCRIPTION, false)
 
+    fun setSuccesSubscription() = preferences.edit().putBoolean(HAS_SUBSCRIPTION, true).commit()
+
     fun startSubscription(activity: Activity) {
         val params = SkuDetailsParams.newBuilder().setSkusList(arrayListOf(SUBSCRIPTION_ID))
                 .setType(BillingClient.SkuType.SUBS).build()

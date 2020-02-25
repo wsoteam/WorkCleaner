@@ -61,7 +61,8 @@ class DiamondFrag : Fragment() {
     }
 
     private fun handlInApp() {
-        activity!!.getSharedPreferences(Config.HAS_SUBSCRIPTION, MODE_PRIVATE).edit().putBoolean(Config.HAS_SUBSCRIPTION, true).commit()
+        Events.logPurschase(arguments?.getString(TAG_FROM).toString())
+        SubscriptionProvider.setSuccesSubscription()
         activity?.let {
             startActivity(Intent(it, MainActivity::class.java))
         }
