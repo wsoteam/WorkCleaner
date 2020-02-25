@@ -35,7 +35,7 @@ class SplashActivity : AppCompatActivity() {
     val canGoNext = MutableLiveData<Int>()
 
     var counter: Int = 0
-    var max = 0
+    var max = 1
 
     init {
         canGoNext.observe(this, Observer {
@@ -52,7 +52,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.flash_screen)
         Events.logSplash()
         getInterState()
-        //activateABTest()
+        activateABTest()
         signInAndInitUser(intent)
         privacyPoliceClicked = false
         privatePoliceBtn = findViewById(R.id.privacyPoliceBtn)
@@ -182,7 +182,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun moveABTest() {
-        /*if (isFirstLaunch()) {
+        if (isFirstLaunch()) {
             val version =
                     getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE).getString(ABConfig.KEY_FOR_SAVE_STATE, "")
             var intent = Intent()
@@ -194,10 +194,10 @@ class SplashActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-        }else{*/
+        }else{
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        //}
+        }
     }
 
     private fun isFirstLaunch(): Boolean {

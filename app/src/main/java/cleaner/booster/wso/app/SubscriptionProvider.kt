@@ -33,8 +33,6 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
 
     override fun onPurchasesUpdated(billingResult: BillingResult?, purchases: MutableList<Purchase>?) {
         if (billingResult!!.responseCode == BillingClient.BillingResponseCode.OK){
-            Log.e("LOL", "asd")
-
         }
 
     }
@@ -47,23 +45,9 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
         if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
             var hasSubscription = false
             val result = playStoreBillingClient.queryPurchases(BillingClient.SkuType.SUBS)
-            result.purchasesList.forEach {
-                if (it.sku == SUBSCRIPTION_ID) {
-                    hasSubscription = true
-                    val params = AcknowledgePurchaseParams.newBuilder().setPurchaseToken(it
-                            .purchaseToken).build()
-                    playStoreBillingClient.acknowledgePurchase(params) { billingResult ->
-                        when (billingResult.responseCode) {
-                            BillingClient.BillingResponseCode.OK -> {
-                                preferences.edit().putBoolean(IS_APPROVED, true).apply()
-                            }
-                            else -> {
-                                preferences.edit().putBoolean(HAS_SUBSCRIPTION, false).apply()
-                            }
-                        }
-                    }
+            if (result.purchasesList.size > 0){
+                hasSubscription = true
 
-                }
             }
             preferences.edit().putBoolean(HAS_SUBSCRIPTION, hasSubscription).apply()
         }
@@ -92,7 +76,7 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
     }
 
     fun startChoiseSub(activity: Activity, id : String) {
-        val params = SkuDetailsParams.newBuilder().setSkusList(arrayListOf(SUBSCRIPTION_ID))
+        val params = SkuDetailsParams.newBuilder().setSkusList(arrayListOf(id))
                 .setType(BillingClient.SkuType.SUBS).build()
         playStoreBillingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->
             when (billingResult.responseCode) {

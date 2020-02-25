@@ -59,4 +59,6 @@ class LineFrag : Fragment() {
             MainActivity.setInfo(R.string.remove_ads)
         }
     }
+
+
 }
