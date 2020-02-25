@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import ru.mail.aslanisl.mobpirate.MobPirate
+import java.util.concurrent.TimeUnit
 
 class SplashActivity : AppCompatActivity() {
     private var privatePoliceBtn: Button? = null
@@ -36,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
     init {
         canGoNext.observe(this, Observer {
             counter += it
-            if (counter > 1) {
+            if (counter > 0) {
                 goNext()
             }
 
@@ -47,7 +48,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.flash_screen)
         Events.logSplash()
-        activateABTest()
+        //activateABTest()
         signInAndInitUser(intent)
         privacyPoliceClicked = false
         privatePoliceBtn = findViewById(R.id.privacyPoliceBtn)
@@ -61,7 +62,10 @@ class SplashActivity : AppCompatActivity() {
         if(!SubscriptionProvider.hasSubscription()) {
             loadAd()
         }else{
-            canGoNext.postValue(1)
+            Thread{
+                TimeUnit.SECONDS.sleep(2)
+                canGoNext.postValue(1)
+            }.start()
         }
     }
 
@@ -155,7 +159,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun moveABTest() {
-        if (isFirstLaunch()) {
+        /*if (isFirstLaunch()) {
             val version =
                     getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE).getString(ABConfig.KEY_FOR_SAVE_STATE, "")
             var intent = Intent()
@@ -167,10 +171,10 @@ class SplashActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-        }else{
+        }else{*/
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        }
+        //}
     }
 
     private fun isFirstLaunch(): Boolean {

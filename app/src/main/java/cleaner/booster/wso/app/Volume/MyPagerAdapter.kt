@@ -32,7 +32,8 @@ class MyPagerAdapter(fm: FragmentManager, internal var mNumOfTabs: Int) : Fragme
                 return JunkCleanerFrag()
             }
             else -> {
-                return getPremFragment()
+                //return getPremFragment()
+                return NoAdsFrag.MyFragment()
             }
         }
     }

@@ -92,7 +92,7 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
     }
 
     fun startChoiseSub(activity: Activity, id : String) {
-        val params = SkuDetailsParams.newBuilder().setSkusList(arrayListOf(id))
+        val params = SkuDetailsParams.newBuilder().setSkusList(arrayListOf(SUBSCRIPTION_ID))
                 .setType(BillingClient.SkuType.SUBS).build()
         playStoreBillingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->
             when (billingResult.responseCode) {

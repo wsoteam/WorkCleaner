@@ -16,11 +16,11 @@
     <string name="facebook_app_id" translatable="false">2925161510862306</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb2925161510862306</string>
 
-    <!--<string name="banner_key" translatable="false">ca-app-pub-3050564412171997/6021645302</string>
-    <string name="interstitial" translatable="false">ca-app-pub-3050564412171997/5195648793</string>-->
+    <string name="banner_key" translatable="false">ca-app-pub-3050564412171997/6021645302</string>
+    <string name="interstitial" translatable="false">ca-app-pub-3050564412171997/5195648793</string>
 
-    <string name="banner_key" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <!--<string name="banner_key" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
 
 
     <string name="byte_short" translatable="false">B</string>
