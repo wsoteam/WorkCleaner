@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import cleaner.booster.wso.app.common.analytics.Events
 import cleaner.booster.wso.app.common.analytics.UserProperties
+import cleaner.booster.wso.app.common.remote.InterConfig
 import cleaner.booster.wso.app.common.tests.ABConfig
 import cleaner.booster.wso.app.inapp.premiums.DiamondFrag
 import cleaner.booster.wso.app.inapp.RocketAct
@@ -21,6 +22,7 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.tasks.Task
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import ru.mail.aslanisl.mobpirate.MobPirate
 import java.util.concurrent.TimeUnit
 
@@ -33,11 +35,12 @@ class SplashActivity : AppCompatActivity() {
     val canGoNext = MutableLiveData<Int>()
 
     var counter: Int = 0
+    var max = 0
 
     init {
         canGoNext.observe(this, Observer {
             counter += it
-            if (counter > 0) {
+            if (counter > max) {
                 goNext()
             }
 
@@ -48,6 +51,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.flash_screen)
         Events.logSplash()
+        getInterState()
         //activateABTest()
         signInAndInitUser(intent)
         privacyPoliceClicked = false
@@ -59,14 +63,21 @@ class SplashActivity : AppCompatActivity() {
             privacyPoliceClicked = true
             startActivity(Intent(this@SplashActivity, PrivacyPoliceActivity::class.java))
         }
-        if(!SubscriptionProvider.hasSubscription()) {
-            loadAd()
-        }else{
-            Thread{
-                TimeUnit.SECONDS.sleep(2)
-                canGoNext.postValue(1)
-            }.start()
-        }
+    }
+
+    private fun getInterState() {
+        val firebaseRemoteConfig: FirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+        firebaseRemoteConfig.setDefaults(R.xml.inter_config)
+
+        firebaseRemoteConfig.fetch(3600)
+                .addOnCompleteListener { task: Task<Void?> ->
+                    if (task.isSuccessful) {
+                        firebaseRemoteConfig.activateFetched()
+                    } else {
+                    }
+                    handlAd(firebaseRemoteConfig.getString(InterConfig.REQUEST_STRING)
+                    )
+                }
     }
 
     private fun loadAd() {
@@ -87,6 +98,7 @@ class SplashActivity : AppCompatActivity() {
 
             override fun onAdLoaded() {
                 super.onAdLoaded()
+                Events.logFirstInter()
                 mInterstitialAd.show()
             }
         }
@@ -109,10 +121,21 @@ class SplashActivity : AppCompatActivity() {
                 }
     }
 
+    private fun handlAd(interState: String?) {
+        if(!SubscriptionProvider.hasSubscription() && interState == InterConfig.state_on) {
+            loadAd()
+        }else{
+            Thread{
+                TimeUnit.SECONDS.sleep(2)
+                canGoNext.postValue(1)
+            }.start()
+        }
+    }
+
     private fun setABTestConfig(responseString: String) {
         UserProperties.setABUserProp(responseString)
         getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, MODE_PRIVATE).edit()
-                .putString(ABConfig.KEY_FOR_SAVE_STATE, ABConfig.DEFAULT)
+                .putString(ABConfig.KEY_FOR_SAVE_STATE, responseString)
                 .apply()
         canGoNext.postValue(1)
     }

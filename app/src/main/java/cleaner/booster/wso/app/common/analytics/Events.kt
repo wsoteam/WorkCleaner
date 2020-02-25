@@ -24,8 +24,14 @@ class Events {
     const val crash_ab = "crash_ab"
     const val normaly_ab = "normaly_ab"
 
+    const val first_inter = "first_inter"
+
+      fun logFirstInter() {
+          Amplitude.getInstance()
+                  .logEvent(first_inter)
+      }
+
     fun logError() {
-      Log.e("LOL", "error")
       Amplitude.getInstance()
           .logEvent(crash_ab)
     }
