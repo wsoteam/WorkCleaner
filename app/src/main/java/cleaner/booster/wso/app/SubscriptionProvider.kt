@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import cleaner.booster.wso.app.Config.Companion.HAS_SUBSCRIPTION
+import cleaner.booster.wso.app.inapp.InAppCallback
 import com.android.billingclient.api.*
 
 object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListener {
@@ -12,8 +14,9 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
     private lateinit var preferences: SharedPreferences
 
     private const val SUBSCRIPTION_ID = "no_ads_sub"
-    private const val HAS_SUBSCRIPTION = "has_subscription"
     private const val IS_APPROVED = "is_approved"
+    private var inAppCallback: InAppCallback? = null
+
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences("subscription", Context.MODE_PRIVATE)
@@ -32,7 +35,8 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
     }
 
     override fun onPurchasesUpdated(billingResult: BillingResult?, purchases: MutableList<Purchase>?) {
-        if (billingResult!!.responseCode == BillingClient.BillingResponseCode.OK){
+        if (billingResult!!.responseCode == BillingClient.BillingResponseCode.OK) {
+            inAppCallback?.trialSucces()
         }
 
     }
@@ -45,7 +49,7 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
         if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
             var hasSubscription = false
             val result = playStoreBillingClient.queryPurchases(BillingClient.SkuType.SUBS)
-            if (result.purchasesList.size > 0){
+            if (result.purchasesList.size > 0) {
                 hasSubscription = true
 
             }
@@ -75,7 +79,8 @@ object SubscriptionProvider : PurchasesUpdatedListener, BillingClientStateListen
         }
     }
 
-    fun startChoiseSub(activity: Activity, id : String) {
+    fun startChoiseSub(activity: Activity, id: String, callback: InAppCallback) {
+        inAppCallback = callback
         val params = SkuDetailsParams.newBuilder().setSkusList(arrayListOf(id))
                 .setType(BillingClient.SkuType.SUBS).build()
         playStoreBillingClient.querySkuDetailsAsync(params) { billingResult, skuDetailsList ->

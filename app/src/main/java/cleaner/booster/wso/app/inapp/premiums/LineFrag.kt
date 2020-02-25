@@ -7,13 +7,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import cleaner.booster.wso.app.Config
 import cleaner.booster.wso.app.MainActivity
 import cleaner.booster.wso.app.R
 import cleaner.booster.wso.app.SubscriptionProvider
 import cleaner.booster.wso.app.common.analytics.Events
 import cleaner.booster.wso.app.common.tests.ABConfig
+import cleaner.booster.wso.app.inapp.InAppCallback
 import kotlinx.android.synthetic.main.line_act.view.*
 
 class LineFrag : Fragment() {
@@ -40,7 +43,11 @@ class LineFrag : Fragment() {
         val from = arguments?.getString(TAG_FROM)
         val abVersion = activity?.getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE)?.getString(ABConfig.KEY_FOR_SAVE_STATE, "")
         view.btnPay.setOnClickListener { _ ->
-            activity?.let { it1 -> SubscriptionProvider.startChoiseSub(it1, abVersion!!) }
+            activity?.let { it1 -> SubscriptionProvider.startChoiseSub(it1, abVersion!!, object : InAppCallback{
+                override fun trialSucces() {
+                    handlInApp()
+                }
+            }) }
         }
 
         view.tvNext.setOnClickListener { _ ->
@@ -51,6 +58,14 @@ class LineFrag : Fragment() {
         if (activity is MainActivity){
             view.tvNext.visibility = View.INVISIBLE
         }
+    }
+
+    private fun handlInApp() {
+        activity!!.getSharedPreferences(Config.HAS_SUBSCRIPTION, Context.MODE_PRIVATE).edit().putBoolean(Config.HAS_SUBSCRIPTION, true).commit()
+        activity?.let {
+            startActivity(Intent(it, MainActivity::class.java))
+        }
+        activity?.finish()
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
