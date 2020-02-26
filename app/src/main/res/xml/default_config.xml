@@ -4,4 +4,12 @@
     <key>clean_version</key>
     <value>trial_little_load_battery_3d_1m</value>
   </entry>
+  <entry>
+    <key>inter_state</key>
+    <value>off</value>
+  </entry>
+  <entry>
+    <key>onboard_state</key>
+    <value>off</value>
+  </entry>
 </defaultsMap>

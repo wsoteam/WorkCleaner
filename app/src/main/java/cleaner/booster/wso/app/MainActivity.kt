@@ -31,8 +31,7 @@ import java.util.Calendar
 
 import cleaner.booster.wso.app.Constants.adsShow
 import cleaner.booster.wso.app.common.analytics.Events
-import cleaner.booster.wso.app.common.remote.InterConfig
-import cleaner.booster.wso.app.inapp.RocketAct
+import cleaner.booster.wso.app.common.remote.RemoteConfig
 import cleaner.booster.wso.app.utils.PreferencesProvider
 import com.amplitude.api.Amplitude
 import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener
@@ -71,7 +70,7 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
 
     val adRequest = AdRequest.Builder()
         .build()
-    if (!SubscriptionProvider.hasSubscription() && getSharedPreferences(InterConfig.TAG_SAVE, Context.MODE_PRIVATE)!!.getString(InterConfig.TAG_SAVE, InterConfig.state_off) == InterConfig.state_on) {
+    if (!SubscriptionProvider.hasSubscription() && getSharedPreferences(RemoteConfig.TAG_SAVE, Context.MODE_PRIVATE)!!.getString(RemoteConfig.TAG_SAVE, RemoteConfig.state_off) == RemoteConfig.state_on) {
       adView.visibility = View.VISIBLE
       adView!!.loadAd(adRequest)
     }

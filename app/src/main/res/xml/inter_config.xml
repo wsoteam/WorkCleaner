@@ -4,4 +4,8 @@
         <key>inter_state</key>
         <value>off</value>
     </entry>
+    <entry>
+        <key>onboard_state</key>
+        <value>off</value>
+    </entry>
 </defaultsMap>
