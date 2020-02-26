@@ -122,10 +122,11 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun handlAd(interState: String?) {
-        if(!SubscriptionProvider.hasSubscription() && interState == InterConfig.state_on) {
+        getSharedPreferences(InterConfig.TAG_SAVE, Context.MODE_PRIVATE).edit().putString(InterConfig.TAG_SAVE, interState).commit()
+        if (!SubscriptionProvider.hasSubscription() && interState == InterConfig.state_on) {
             loadAd()
-        }else{
-            Thread{
+        } else {
+            Thread {
                 TimeUnit.SECONDS.sleep(2)
                 canGoNext.postValue(1)
             }.start()
@@ -194,7 +195,7 @@ class SplashActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-        }else{
+        } else {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }

@@ -7,5 +7,7 @@ class InterConfig {
         const val state_off = "off"
         const val state_on = "on"
 
+        const val TAG_SAVE = "admob_tag_save_state"
+
     }
 }

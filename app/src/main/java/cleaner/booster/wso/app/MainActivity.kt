@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 
@@ -30,6 +31,7 @@ import java.util.Calendar
 
 import cleaner.booster.wso.app.Constants.adsShow
 import cleaner.booster.wso.app.common.analytics.Events
+import cleaner.booster.wso.app.common.remote.InterConfig
 import cleaner.booster.wso.app.inapp.RocketAct
 import cleaner.booster.wso.app.utils.PreferencesProvider
 import com.amplitude.api.Amplitude
@@ -69,7 +71,8 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
 
     val adRequest = AdRequest.Builder()
         .build()
-    if (!SubscriptionProvider.hasSubscription()) {
+    if (!SubscriptionProvider.hasSubscription() && getSharedPreferences(InterConfig.TAG_SAVE, Context.MODE_PRIVATE)!!.getString(InterConfig.TAG_SAVE, InterConfig.state_off) == InterConfig.state_on) {
+      adView.visibility = View.VISIBLE
       adView!!.loadAd(adRequest)
     }
     consent = intent.getBooleanExtra(CONSENT, false)

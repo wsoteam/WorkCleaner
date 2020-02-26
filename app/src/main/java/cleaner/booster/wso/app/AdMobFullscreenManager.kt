@@ -1,7 +1,9 @@
 package cleaner.booster.wso.app
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.util.Log
+import cleaner.booster.wso.app.common.remote.InterConfig
 
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -74,7 +76,7 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
 
     fun showAdd(): Boolean {
         var b = false
-        if(!SubscriptionProvider.hasSubscription()) {
+        if(!SubscriptionProvider.hasSubscription() || context?.getSharedPreferences(InterConfig.TAG_SAVE, MODE_PRIVATE)!!.getString(InterConfig.TAG_SAVE, InterConfig.state_off) == InterConfig.state_on) {
             if (mInterstitialAd.isLoaded()) {
                 mInterstitialAd.show()
                 b = true
