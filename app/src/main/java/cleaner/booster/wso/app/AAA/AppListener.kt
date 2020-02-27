@@ -29,7 +29,7 @@ class AppListener : BroadcastReceiver() {
 
 
 
-        if (installedPackageName != "fast.cleaner.battery.saver") {
+        /*if (installedPackageName != "fast.cleaner.battery.saver") {
             //            Toast.makeText(context, installedPackageName + "", Toast.LENGTH_SHORT).show();
 
             val packageManager = context.applicationContext.packageManager
@@ -50,6 +50,6 @@ class AppListener : BroadcastReceiver() {
                 e.printStackTrace()
             }
 
-        }
+        }*/
     }
 }
