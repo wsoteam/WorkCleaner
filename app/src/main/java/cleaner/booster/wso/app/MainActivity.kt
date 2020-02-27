@@ -70,8 +70,7 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
 
     val adRequest = AdRequest.Builder()
         .build()
-    if (!SubscriptionProvider.hasSubscription() && getSharedPreferences(RemoteConfig.TAG_SAVE, Context.MODE_PRIVATE)!!.getString(RemoteConfig.TAG_SAVE, RemoteConfig.state_off) == RemoteConfig.state_on) {
-      adView.visibility = View.VISIBLE
+    if (!SubscriptionProvider.hasSubscription()) {
       adView!!.loadAd(adRequest)
     }
     consent = intent.getBooleanExtra(CONSENT, false)

@@ -32,7 +32,7 @@ class SplashActivity : AppCompatActivity() {
     val canGoNext = MutableLiveData<Int>()
 
     var counter: Int = 0
-    var max = 1
+    var max = 0
 
     init {
         canGoNext.observe(this, Observer {
@@ -102,14 +102,14 @@ class SplashActivity : AppCompatActivity() {
                     } else {
                         Events.logError()
                     }
-                    setABTestConfig(firebaseRemoteConfig.getString(ABConfig.REQUEST_STRING))
+                    //setABTestConfig(firebaseRemoteConfig.getString(ABConfig.REQUEST_STRING))
                     handlAd(firebaseRemoteConfig.getString(RemoteConfig.REQUEST_STRING_INTER))
-                    handlOnboard(firebaseRemoteConfig.getString(RemoteConfig.REQUEST_STRING_ONBOARD))
+                    //handlOnboard(firebaseRemoteConfig.getString(RemoteConfig.REQUEST_STRING_ONBOARD))
                 }
     }
 
     private fun handlAd(interState: String?) {
-        getSharedPreferences(RemoteConfig.TAG_SAVE, Context.MODE_PRIVATE).edit().putString(RemoteConfig.TAG_SAVE, RemoteConfig.state_off).commit()
+        //getSharedPreferences(RemoteConfig.TAG_SAVE, Context.MODE_PRIVATE).edit().putString(RemoteConfig.TAG_SAVE, interState).commit()
         if (!SubscriptionProvider.hasSubscription() && interState == RemoteConfig.state_on) {
             loadAd()
         } else {
@@ -170,7 +170,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun moveABTest() {
-        if (isFirstLaunch()) {
+       /* if (isFirstLaunch()) {
             val version =
                     getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE).getString(ABConfig.KEY_FOR_SAVE_STATE, "")
             var intent = Intent()
@@ -182,10 +182,10 @@ class SplashActivity : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
-        } else {
+        } else {*/
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        }
+        //}
     }
 
     private fun isFirstLaunch(): Boolean {
