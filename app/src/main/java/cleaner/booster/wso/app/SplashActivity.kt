@@ -48,7 +48,8 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.flash_screen)
         Events.logSplash()
-        activateRC()
+        //activateRC()
+        handlAd("kek")
         signInAndInitUser(intent)
         privacyPoliceClicked = false
         privatePoliceBtn = findViewById(R.id.privacyPoliceBtn)
@@ -109,8 +110,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun handlAd(interState: String?) {
-        //getSharedPreferences(RemoteConfig.TAG_SAVE, Context.MODE_PRIVATE).edit().putString(RemoteConfig.TAG_SAVE, interState).commit()
-        if (!SubscriptionProvider.hasSubscription() && interState == RemoteConfig.state_on) {
+        if (!SubscriptionProvider.hasSubscription()) {
             loadAd()
         } else {
             Thread {
