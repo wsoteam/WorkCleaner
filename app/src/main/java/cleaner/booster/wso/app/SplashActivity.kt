@@ -111,14 +111,14 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun handlAd(interState: String?) {
-        /*if (!SubscriptionProvider.hasSubscription()) {
+        if (!SubscriptionProvider.hasSubscription() && !isFirstLaunch()) {
             loadAd()
-        } else {*/
+        } else {
             Thread {
                 TimeUnit.SECONDS.sleep(2)
                 canGoNext.postValue(1)
             }.start()
-        //}
+        }
     }
 
     private fun setABTestConfig(responseString: String) {
@@ -184,8 +184,8 @@ class SplashActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else {*/
-            //startActivity(Intent(this, MainActivity::class.java))
-            startActivity(Intent(this, InterRocketAct::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
+            //startActivity(Intent(this, InterRocketAct::class.java))
             finish()
         //}
     }
