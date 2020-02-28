@@ -112,6 +112,8 @@
       <activity
           android:name=".inapp.RocketAct" />
         <activity
+            android:name=".inapp.InterRocketAct" />
+        <activity
             android:name=".inapp.premiums.PremiumHostAct" />
 
         <meta-data

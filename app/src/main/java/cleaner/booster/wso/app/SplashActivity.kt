@@ -12,6 +12,7 @@ import cleaner.booster.wso.app.common.analytics.Events
 import cleaner.booster.wso.app.common.analytics.UserProperties
 import cleaner.booster.wso.app.common.remote.RemoteConfig
 import cleaner.booster.wso.app.common.tests.ABConfig
+import cleaner.booster.wso.app.inapp.InterRocketAct
 import cleaner.booster.wso.app.inapp.RocketAct
 import cleaner.booster.wso.app.inapp.premiums.PremiumHostAct
 import com.google.android.gms.ads.AdListener
@@ -110,14 +111,14 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun handlAd(interState: String?) {
-        if (!SubscriptionProvider.hasSubscription()) {
+        /*if (!SubscriptionProvider.hasSubscription()) {
             loadAd()
-        } else {
+        } else {*/
             Thread {
                 TimeUnit.SECONDS.sleep(2)
                 canGoNext.postValue(1)
             }.start()
-        }
+        //}
     }
 
     private fun setABTestConfig(responseString: String) {
@@ -183,7 +184,8 @@ class SplashActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         } else {*/
-            startActivity(Intent(this, MainActivity::class.java))
+            //startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, InterRocketAct::class.java))
             finish()
         //}
     }
