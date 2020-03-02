@@ -6,17 +6,17 @@
       android:id="@+id/nav_boost"
       android:icon="@drawable/ic_nav_boost" />
 
-  <item
+  <!--<item
       android:id="@+id/nav_battery"
-      android:icon="@drawable/ic_nav_battery" />
+      android:icon="@drawable/ic_nav_battery" />-->
 
   <item
       android:id="@+id/nav_fan"
       android:icon="@drawable/ic_nav_fan" />
 
-  <item
+  <!--<item
       android:id="@+id/nav_delete"
-      android:icon="@drawable/ic_nav_delete" />
+      android:icon="@drawable/ic_nav_delete" />-->
 
   <item
       android:id="@+id/nav_rem"
