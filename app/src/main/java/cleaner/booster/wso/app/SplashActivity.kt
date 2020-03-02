@@ -9,18 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import cleaner.booster.wso.app.common.analytics.Events
-import cleaner.booster.wso.app.common.analytics.UserProperties
-import cleaner.booster.wso.app.common.remote.RemoteConfig
-import cleaner.booster.wso.app.common.tests.ABConfig
-import cleaner.booster.wso.app.inapp.InterRocketAct
-import cleaner.booster.wso.app.inapp.RocketAct
-import cleaner.booster.wso.app.inapp.premiums.PremiumHostAct
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.tasks.Task
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import ru.mail.aslanisl.mobpirate.MobPirate
 import java.util.concurrent.TimeUnit
 
@@ -92,23 +84,6 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
-    private fun activateRC() {
-        val firebaseRemoteConfig: FirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-        firebaseRemoteConfig.setDefaults(R.xml.default_config)
-
-        firebaseRemoteConfig.fetch(3600)
-                .addOnCompleteListener { task: Task<Void?> ->
-                    if (task.isSuccessful) {
-                        firebaseRemoteConfig.activateFetched()
-                        Events.logSuccess()
-                    } else {
-                        Events.logError()
-                    }
-                    //setABTestConfig(firebaseRemoteConfig.getString(ABConfig.REQUEST_STRING))
-                    handlAd(firebaseRemoteConfig.getString(RemoteConfig.REQUEST_STRING_INTER))
-                    //handlOnboard(firebaseRemoteConfig.getString(RemoteConfig.REQUEST_STRING_ONBOARD))
-                }
-    }
 
     private fun handlAd(interState: String?) {
         if (false) {
@@ -121,13 +96,6 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
-    private fun setABTestConfig(responseString: String) {
-        UserProperties.setABUserProp(responseString)
-        getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, MODE_PRIVATE).edit()
-                .putString(ABConfig.KEY_FOR_SAVE_STATE, responseString)
-                .apply()
-        canGoNext.postValue(1)
-    }
 
     private fun signInAndInitUser(intent: Intent) {
         // Obtain the FirebaseAnalytics instance.

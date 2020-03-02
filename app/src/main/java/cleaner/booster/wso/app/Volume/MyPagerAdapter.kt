@@ -32,19 +32,20 @@ class MyPagerAdapter(fm: FragmentManager, internal var mNumOfTabs: Int) : Fragme
                 return JunkCleanerFrag()
             }
             else -> {
-                //return getPremFragment()
-                return NoAdsFrag.MyFragment()
+                return getPremFragment()
+                //return NoAdsFrag.MyFragment()
             }
         }
     }
 
     private fun getPremFragment(): Fragment {
-        val version = MyApp.getInstance().getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE).getString(ABConfig.KEY_FOR_SAVE_STATE, "")
+        /*val version = MyApp.getInstance().getSharedPreferences(ABConfig.KEY_FOR_SAVE_STATE, Context.MODE_PRIVATE).getString(ABConfig.KEY_FOR_SAVE_STATE, "")
         return when(version){
             ABConfig.DEFAULT, ABConfig.A, ABConfig.D, ABConfig.F -> DiamondFrag.newInstance(EventProperties.from_app)
             ABConfig.B, ABConfig.C, ABConfig.E, ABConfig.G -> LineFrag.newInstance(EventProperties.from_app)
             else -> LineFrag.newInstance(EventProperties.from_app_error_version)
-        }
+        }*/
+        return DiamondFrag.newInstance(EventProperties.from_app)
     }
 
     override fun getCount(): Int {

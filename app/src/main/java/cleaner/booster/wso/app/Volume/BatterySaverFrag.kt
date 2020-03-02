@@ -167,10 +167,7 @@ class BatterySaverFrag : Fragment() {
                 startActivity(i)
             }
 
-            imageView7.setOnClickListener {
-                val i = Intent(activity, Ultra_PopUp::class.java)
-                startActivity(i)
-            }
+
 
 
 
