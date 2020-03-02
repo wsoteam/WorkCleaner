@@ -111,7 +111,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun handlAd(interState: String?) {
-        if (!SubscriptionProvider.hasSubscription() && !isFirstLaunch()) {
+        if (false) {
             loadAd()
         } else {
             Thread {
