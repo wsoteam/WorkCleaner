@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        loadAd()
+        //loadAd()
         Events.logMainScreen()
         data.observe(this, Observer {
             name.setText(it)
@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
 
         tab_layout.setOnNavigationItemSelectedListener(object : OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                firstShow()
+                //firstShow()
                 when (item.itemId) {
                     R.id.nav_boost -> pager.currentItem = BOOSTER
                     /*R.id.nav_battery -> pager.currentItem = BATTERY*/
