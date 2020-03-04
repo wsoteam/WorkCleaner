@@ -78,7 +78,7 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
         var b = false
         if(!SubscriptionProvider.hasSubscription()) {
             if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show()
+                //mInterstitialAd.show()
                 b = true
             } else {
                 Log.d("TAG", "The interstitial wasn't loaded yet.")
@@ -113,7 +113,7 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
 
         if (mInterstitialAd.isLoaded()) {
             adMobState = AdMobState.Loaded
-            mInterstitialAd.show()
+           // mInterstitialAd.show()
         } else if (!mInterstitialAd.isLoading()) {
             adMobState = AdMobState.Loading
             mInterstitialAd.loadAd(AdRequest.Builder().build())

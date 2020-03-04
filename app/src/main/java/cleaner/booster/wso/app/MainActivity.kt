@@ -96,11 +96,11 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
         Amplitude.getInstance().logEvent("Run")
         setNotification()
 
-        val adRequest = AdRequest.Builder()
+       /* val adRequest = AdRequest.Builder()
                 .build()
         if (!SubscriptionProvider.hasSubscription()) {
             adView!!.loadAd(adRequest)
-        }
+        }*/
         consent = intent.getBooleanExtra(CONSENT, false)
 
         val randomNum = 6 + (Math.random() * 18).toInt()
@@ -156,10 +156,10 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
 
 
         Log.i("adsShow", adsShow.toString())
-        if (SubscriptionProvider.hasSubscription()) {
+        /*if (SubscriptionProvider.hasSubscription()) {
             tab_layout.menu.removeItem(R.id.nav_rem)
             //tab_layout.addTab(tab_layout.newTab().setIcon(R.drawable.ads))
-        }
+        }*/
         val adapter = MyPagerAdapter(supportFragmentManager, tab_layout.maxItemCount)
         pager.adapter = adapter
         pager.offscreenPageLimit = tab_layout.maxItemCount
@@ -171,9 +171,9 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
                 when (item.itemId) {
                     R.id.nav_boost -> pager.currentItem = BOOSTER
                     /*R.id.nav_battery -> pager.currentItem = BATTERY*/
-                    R.id.nav_fan -> pager.currentItem = FAN
+                    //R.id.nav_fan -> pager.currentItem = FAN
                     /*R.id.nav_delete -> pager.currentItem = CLEAN*/
-                    R.id.nav_rem -> pager.currentItem = SUB
+                    //R.id.nav_rem -> pager.currentItem = SUB
                 }
                 return true
             }

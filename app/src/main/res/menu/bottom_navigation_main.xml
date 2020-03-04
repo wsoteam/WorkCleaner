@@ -10,15 +10,15 @@
       android:id="@+id/nav_battery"
       android:icon="@drawable/ic_nav_battery" />-->
 
-  <item
+  <!--<item
       android:id="@+id/nav_fan"
-      android:icon="@drawable/ic_nav_fan" />
+      android:icon="@drawable/ic_nav_fan" />-->
 
   <!--<item
       android:id="@+id/nav_delete"
       android:icon="@drawable/ic_nav_delete" />-->
 
-  <item
+  <!--<item
       android:id="@+id/nav_rem"
-      android:icon="@drawable/ic_giftbox" />
+      android:icon="@drawable/ic_giftbox" />-->
 </menu>
