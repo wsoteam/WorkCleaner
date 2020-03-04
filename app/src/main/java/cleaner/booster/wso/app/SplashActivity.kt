@@ -86,16 +86,14 @@ class SplashActivity : AppCompatActivity() {
 
 
     private fun handlAd(interState: String?) {
-        /*if (false) {
+        if (false) {
             loadAd()
         } else {
             Thread {
                 TimeUnit.SECONDS.sleep(2)
                 canGoNext.postValue(1)
             }.start()
-        }*/
-        canGoNext.postValue(1)
-
+        }
     }
 
 

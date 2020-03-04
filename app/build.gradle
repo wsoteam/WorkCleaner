@@ -10,8 +10,8 @@ android {
     applicationId "app.kek.kek"
     minSdkVersion 21
     targetSdkVersion 29
-    versionCode 24
-    versionName "1.9.8.6"
+    versionCode 26
+    versionName "1.9.8.8"
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
