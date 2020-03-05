@@ -47,11 +47,11 @@ class PowerSaving_Complition : Activity(), AdMobFullscreenManager.AdMobFullscree
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.powersaving_completion)
-
-    mAdView = findViewById(R.id.adView)
+    //TODO ban
+    /*mAdView = findViewById(R.id.adView)
     val adRequest = AdRequest.Builder()
         .build()
-    mAdView!!.loadAd(adRequest)
+    mAdView!!.loadAd(adRequest)*/
 
     dynamicArcView2.addSeries(SeriesItem.Builder(Color.argb(255, 218, 218, 218))
         .setRange(0f, 100f, 0f)

@@ -30,10 +30,10 @@ class PowerSaving_popup : Activity() {
         super.onCreate(savedInstanceState)
         val b = intent.extras
         setContentView(R.layout.powersaving_popup)
-
-        mAdView = findViewById(R.id.adView)
+        //TODO ban
+        /*mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
-        mAdView!!.loadAd(adRequest)
+        mAdView!!.loadAd(adRequest)*/
 
 
         items = ArrayList()
