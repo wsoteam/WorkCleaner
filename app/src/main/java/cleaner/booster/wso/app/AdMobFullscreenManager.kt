@@ -15,7 +15,6 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
     private var countRequestAd: Int = 0
 
     private var delegate: AdMobFullscreenDelegate? = null
-    var extrasInt: Long = -1
     var tryingShowDone = false
     private var adMobState = AdMobState.Loading
     private val mInterstitialAd: InterstitialAd
@@ -34,7 +33,6 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
 
     private fun configure(delegate: AdMobFullscreenDelegate?) {
         mInterstitialAd.setAdUnitId(context?.getString(R.string.interstitial)!!)
-        //mInterstitialAd.setAdUnitId("ca-app-pub-3149924354118474/9415209496");
         mInterstitialAd.loadAd(AdRequest.Builder().build())
         this.delegate = delegate
         mInterstitialAd.setAdListener(object : AdListener() {
@@ -68,8 +66,6 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
                 if (this@AdMobFullscreenManager.delegate != null) {
                     this@AdMobFullscreenManager.delegate!!.ADIsClosed()
                 }
-
-                // Code to be executed when when the interstitial ad is closed.
             }
         })
     }
@@ -78,7 +74,7 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
         var b = false
         if(!SubscriptionProvider.hasSubscription()) {
             if (mInterstitialAd.isLoaded()) {
-                //mInterstitialAd.show()
+                mInterstitialAd.show()
                 b = true
             } else {
                 Log.d("TAG", "The interstitial wasn't loaded yet.")
@@ -113,7 +109,7 @@ class AdMobFullscreenManager(private val context: Context?, delegate: AdMobFulls
 
         if (mInterstitialAd.isLoaded()) {
             adMobState = AdMobState.Loaded
-           // mInterstitialAd.show()
+            mInterstitialAd.show()
         } else if (!mInterstitialAd.isLoading()) {
             adMobState = AdMobState.Loading
             mInterstitialAd.loadAd(AdRequest.Builder().build())
