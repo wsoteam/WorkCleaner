@@ -170,9 +170,9 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
                 //firstShow()
                 when (item.itemId) {
                     R.id.nav_boost -> pager.currentItem = BOOSTER
-                    /*R.id.nav_battery -> pager.currentItem = BATTERY*/
+                    R.id.nav_battery -> pager.currentItem = BATTERY
                     R.id.nav_fan -> pager.currentItem = FAN
-                    /*R.id.nav_delete -> pager.currentItem = CLEAN*/
+                    R.id.nav_delete -> pager.currentItem = CLEAN
                     //R.id.nav_rem -> pager.currentItem = SUB
                 }
                 return true
