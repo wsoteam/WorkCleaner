@@ -2,6 +2,7 @@ package cleaner.booster.wso.app
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -51,7 +52,9 @@ class SplashActivity : AppCompatActivity() {
         privatePoliceBtn!!.text = textSpan
         privatePoliceBtn!!.setOnClickListener {
             privacyPoliceClicked = true
-            startActivity(Intent(this@SplashActivity, PrivacyPoliceActivity::class.java))
+            var intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://www.freeprivacypolicy.com/privacy/view/272200879b5cf29dd1b4fcd0f0299409")
+            startActivity(intent)
         }
     }
 

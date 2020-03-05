@@ -70,9 +70,9 @@ class Cpu_Scanner : Activity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
 
         //TODO ban
 
-       /* mAdView = findViewById(R.id.adView)
+        mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
-        mAdView!!.loadAd(adRequest)*/
+        mAdView!!.loadAd(adRequest)
 
         app = ArrayList()
 

@@ -95,12 +95,12 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
         })
         Amplitude.getInstance().logEvent("Run")
         setNotification()
-
-       /* val adRequest = AdRequest.Builder()
+        //TODO ban
+        val adRequest = AdRequest.Builder()
                 .build()
         if (!SubscriptionProvider.hasSubscription()) {
             adView!!.loadAd(adRequest)
-        }*/
+        }
         consent = intent.getBooleanExtra(CONSENT, false)
 
         val randomNum = 6 + (Math.random() * 18).toInt()
@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
                     R.id.nav_boost -> pager.currentItem = BOOSTER
                     R.id.nav_battery -> pager.currentItem = BATTERY
                     R.id.nav_fan -> pager.currentItem = FAN
-                    R.id.nav_delete -> pager.currentItem = CLEAN
+                    /*R.id.nav_delete -> pager.currentItem = CLEAN*/
                     //R.id.nav_rem -> pager.currentItem = SUB
                 }
                 return true

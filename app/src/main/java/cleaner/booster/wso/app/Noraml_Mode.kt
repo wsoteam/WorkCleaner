@@ -43,12 +43,12 @@ class Noraml_Mode : Activity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.revert_to_normal)
         //TODO ban
-        /*mAdView = findViewById(R.id.adView)
+        mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView!!.loadAd(adRequest)
         if (adsBatterySaver && adsShow) {
         }
-        adsBatterySaver = !adsBatterySaver*/
+        adsBatterySaver = !adsBatterySaver
 
         abnb_low_charge.setAnimation("low_charge.json")
         abnb_low_charge.playAnimation()
