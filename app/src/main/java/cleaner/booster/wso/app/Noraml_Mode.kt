@@ -152,11 +152,12 @@ class Noraml_Mode : Activity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
 
     override fun ADIsClosed() {
         if (adManager!!.tryingShowDone) {
-            check = 1
+           /* check = 1
             youDesirePermissionCode(this@Noraml_Mode)
             PreferencesProvider.getInstance().edit()
                     .putString("mode", "0")
-                    .apply()
+                    .apply()*/
+            finish()
         }
     }
 
