@@ -115,9 +115,9 @@ class PowerSaving_Complition : Activity(), AdMobFullscreenManager.AdMobFullscree
             if (adsShow) {
               adManager!!.completed()
             } else {
-              youDesirePermissionCode(this@PowerSaving_Complition)
+              /*youDesirePermissionCode(this@PowerSaving_Complition)
               closesall()
-              check = 1
+              check = 1*/
             }
           }
         }).build()
@@ -232,9 +232,10 @@ class PowerSaving_Complition : Activity(), AdMobFullscreenManager.AdMobFullscree
 
   override fun ADIsClosed() {
     if (adManager!!.tryingShowDone) {
-      youDesirePermissionCode(this@PowerSaving_Complition)
+      /*youDesirePermissionCode(this@PowerSaving_Complition)
       closesall()
-      check = 1
+      check = 1*/
+      finish()
     }
   }
 
