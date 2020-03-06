@@ -167,7 +167,6 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
 
         tab_layout.setOnNavigationItemSelectedListener(object : OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                firstShow()
                 when (item.itemId) {
                     R.id.nav_boost -> pager.currentItem = BOOSTER
                     R.id.nav_battery -> pager.currentItem = BATTERY
