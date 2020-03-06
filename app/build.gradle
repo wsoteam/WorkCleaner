@@ -10,8 +10,8 @@ android {
     applicationId "app.kek.kek"
     minSdkVersion 21
     targetSdkVersion 29
-    versionCode 30
-    versionName "1.9.8.12"
+    versionCode 34
+    versionName "1.9.8.16"
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
@@ -59,7 +59,7 @@ dependencies {
   // Опционально. Библиотека Play Install Referrer.
   implementation 'com.android.installreferrer:installreferrer:1.0'
   testImplementation 'junit:junit:4.12'
-  implementation 'com.google.android.gms:play-services-ads:17.2.2'
+  implementation 'com.google.android.gms:play-services-ads:19.0.0'
   // Facebook sdk
   implementation 'com.facebook.android:facebook-applinks:5.8.0'
   implementation 'com.facebook.android:facebook-android-sdk:5.8.0'

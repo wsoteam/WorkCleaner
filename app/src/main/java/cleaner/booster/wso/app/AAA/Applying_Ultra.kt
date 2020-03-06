@@ -47,10 +47,10 @@ class Applying_Ultra : Activity() {
     setContentView(R.layout.applying_ultra)
     //TODO ban
 
-    mAdView = findViewById(R.id.adView)
+    /*mAdView = findViewById(R.id.adView)
     val adRequest = AdRequest.Builder()
         .build()
-    mAdView!!.loadAd(adRequest)
+    mAdView!!.loadAd(adRequest)*/
 
     setAnim()
 
@@ -130,9 +130,10 @@ class Applying_Ultra : Activity() {
           }
 
           override fun onEventEnd(decoEvent: DecoEvent) {
-            check = 1
+            /*check = 1
             youDesirePermissionCode(this@Applying_Ultra)
-            enablesall()
+            enablesall()*/
+            finish()
           }
         }).build()
     )

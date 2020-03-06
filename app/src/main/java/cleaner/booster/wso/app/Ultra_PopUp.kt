@@ -27,9 +27,9 @@ class Ultra_PopUp : Activity() {
         setContentView(R.layout.ultra_popup)
         //TODO ban
 
-        mAdView = findViewById(R.id.adView)
+       /* mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
-        mAdView!!.loadAd(adRequest)
+        mAdView!!.loadAd(adRequest)*/
 
         abnb_extreme.setAnimation("13539-sign-for-error-or-explanation-alert.json")
         abnb_extreme.loop(true)

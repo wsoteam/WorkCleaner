@@ -96,11 +96,11 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceClickListener {
         Amplitude.getInstance().logEvent("Run")
         setNotification()
         //TODO ban
-        val adRequest = AdRequest.Builder()
+        /*val adRequest = AdRequest.Builder()
                 .build()
         if (!SubscriptionProvider.hasSubscription()) {
             adView!!.loadAd(adRequest)
-        }
+        }*/
         consent = intent.getBooleanExtra(CONSENT, false)
 
         val randomNum = 6 + (Math.random() * 18).toInt()

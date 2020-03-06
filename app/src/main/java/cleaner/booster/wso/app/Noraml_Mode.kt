@@ -43,9 +43,9 @@ class Noraml_Mode : Activity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.revert_to_normal)
         //TODO ban
-        mAdView = findViewById(R.id.adView)
+        /*mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
-        mAdView!!.loadAd(adRequest)
+        mAdView!!.loadAd(adRequest)*/
         if (adsBatterySaver && adsShow) {
         }
         adsBatterySaver = !adsBatterySaver
@@ -64,7 +64,7 @@ class Noraml_Mode : Activity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
 
             override fun onAnimationEnd(animation: Animator?) {
                 tvLoad.visibility = View.VISIBLE
-                if (adsShow) {
+               /* if (adsShow) {
                     adManager!!.completed()
                 } else {
                     check = 1
@@ -72,7 +72,8 @@ class Noraml_Mode : Activity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
                     PreferencesProvider.getInstance().edit()
                         .putString("mode", "0")
                         .apply()
-                }
+                }*/
+                finish()
             }
         })
 

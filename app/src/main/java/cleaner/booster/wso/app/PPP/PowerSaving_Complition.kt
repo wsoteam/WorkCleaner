@@ -48,10 +48,10 @@ class PowerSaving_Complition : Activity(), AdMobFullscreenManager.AdMobFullscree
     super.onCreate(savedInstanceState)
     setContentView(R.layout.powersaving_completion)
     //TODO ban
-    mAdView = findViewById(R.id.adView)
+    /*mAdView = findViewById(R.id.adView)
     val adRequest = AdRequest.Builder()
         .build()
-    mAdView!!.loadAd(adRequest)
+    mAdView!!.loadAd(adRequest)*/
 
     dynamicArcView2.addSeries(SeriesItem.Builder(Color.argb(255, 218, 218, 218))
         .setRange(0f, 100f, 0f)
@@ -112,13 +112,14 @@ class PowerSaving_Complition : Activity(), AdMobFullscreenManager.AdMobFullscree
           }
 
           override fun onEventEnd(decoEvent: DecoEvent) {
-            if (adsShow) {
+            /*if (adsShow) {
               adManager!!.completed()
             } else {
-              /*youDesirePermissionCode(this@PowerSaving_Complition)
+              *//*youDesirePermissionCode(this@PowerSaving_Complition)
               closesall()
-              check = 1*/
-            }
+              check = 1*//*
+            }*/
+            finish()
           }
         }).build()
     )

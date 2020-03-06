@@ -89,7 +89,7 @@ class SplashActivity : AppCompatActivity() {
 
 
     private fun handlAd(interState: String?) {
-        if (!SubscriptionProvider.hasSubscription()) {
+        if (/*!SubscriptionProvider.hasSubscription()*/false) {
             loadAd()
         } else {
             Thread {

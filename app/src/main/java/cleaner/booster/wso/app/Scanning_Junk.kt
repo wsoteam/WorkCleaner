@@ -95,10 +95,10 @@ class Scanning_Junk : Activity(), AdMobFullscreenManager.AdMobFullscreenDelegate
   private fun startMainAnimation() {
     //TODO ban
 
-    mAdView = findViewById(R.id.adView)
+    /*mAdView = findViewById(R.id.adView)
     val adRequest = AdRequest.Builder()
         .build()
-    mAdView!!.loadAd(adRequest)
+    mAdView!!.loadAd(adRequest)*/
     apps = ArrayList()
 
     val rotate =
