@@ -130,9 +130,9 @@ class Applying_Ultra : Activity() {
           }
 
           override fun onEventEnd(decoEvent: DecoEvent) {
-            /*check = 1
+            check = 1
             youDesirePermissionCode(this@Applying_Ultra)
-            enablesall()*/
+            enablesall()
             finish()
           }
         }).build()

@@ -73,6 +73,10 @@ class Noraml_Mode : Activity(), AdMobFullscreenManager.AdMobFullscreenDelegate {
                         .putString("mode", "0")
                         .apply()
                 }*/
+                youDesirePermissionCode(this@Noraml_Mode)
+                PreferencesProvider.getInstance().edit()
+                        .putString("mode", "0")
+                        .apply()
                 finish()
             }
         })

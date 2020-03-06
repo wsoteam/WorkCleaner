@@ -119,6 +119,9 @@ class PowerSaving_Complition : Activity(), AdMobFullscreenManager.AdMobFullscree
               closesall()
               check = 1*//*
             }*/
+            youDesirePermissionCode(this@PowerSaving_Complition)
+            closesall()
+            check = 1
             finish()
           }
         }).build()
